@@ -149,7 +149,7 @@ function finity.new(isdark, gprojectName, thinProject)
 		finityData.ToggleKey = NewKey
 		
 		if not projectName then
-			self2.tip.Text = "Infinity Ware"
+			self2.tip.Text = "Infinity Ware [🚀]"
 		end
 		
 		if finityData.UpConnection then
@@ -1494,4 +1494,3 @@ function finity.new(isdark, gprojectName, thinProject)
 end
 
 return finity
-print('[Infinity Ware [🚀] ]')
