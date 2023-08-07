@@ -273,7 +273,7 @@ function finity.new(isdark, gprojectName, thinProject)
 	if projectName then
 		self2.tip.Text = projectName
 	else
-		self2.tip.Text = "Infinity Ware"
+		self2.tip.Text = "Infinity Ware [🚀]"
 	end
     
     function finity.settitle(text)
@@ -639,7 +639,7 @@ function finity.new(isdark, gprojectName, thinProject)
 									callback(cheat.value)
 								end)
 
-								if not s then warn("error: ".. e) end
+								if not s then warn("[Infinity Ware] error: ".. e) end
 							end
 
 							if cheat.value then
@@ -712,7 +712,7 @@ function finity.new(isdark, gprojectName, thinProject)
                                             callback(cheat.value)
                                         end)
         
-                                        if not s then warn("error: ".. e) end
+                                        if not s then warn("[Infinity Ware] error: ".. e) end
                                     end
                                 end
 
@@ -745,7 +745,7 @@ function finity.new(isdark, gprojectName, thinProject)
                                             callback(cheat.value)
                                         end)
         
-                                        if not s then warn("error: ".. e) end
+                                        if not s then warn("[Infinity Ware] error: ".. e) end
                                     end
                                 end
 
@@ -767,7 +767,7 @@ function finity.new(isdark, gprojectName, thinProject)
                                     callback(cheat.value)
                                 end)
                                 if not s then 
-                                    warn("error: "..e) 
+                                    warn("[Infinity Ware] error: "..e) 
                                 end
                             end
                         end
@@ -892,7 +892,7 @@ function finity.new(isdark, gprojectName, thinProject)
 												callback(cheat.value)
 											end)
 	
-											if not s then warn("error: ".. e) end
+											if not s then warn("[Infinity Ware] error: ".. e) end
 										end
 									end
 								end)
@@ -975,7 +975,7 @@ function finity.new(isdark, gprojectName, thinProject)
 									callback(cheat.value)
 								end)
 
-								if not s then warn("error: ".. e) end
+								if not s then warn("[Infinity Ware] error: ".. e) end
 							end
 						end
 
@@ -1039,7 +1039,7 @@ function finity.new(isdark, gprojectName, thinProject)
 									callback(cheat.value)
 								end)
 
-								if not s then warn("error: "..e) end
+								if not s then warn("[Infinity Ware] error: "..e) end
                             end
                         end)
                         function cheat:SetValue(value)
@@ -1119,7 +1119,7 @@ function finity.new(isdark, gprojectName, thinProject)
 									callback(cheat.value)
 								end)
 
-								if not s then warn("error: ".. e) end
+								if not s then warn("[Infinity Ware] error: ".. e) end
 							end
                         end
 
@@ -1136,7 +1136,7 @@ function finity.new(isdark, gprojectName, thinProject)
 									callback(cheat.value)
 								end)
 
-								if not s then warn("error: ".. e) end
+								if not s then warn("[Infinity Ware] error: ".. e) end
 							end
                         end
 
@@ -1160,7 +1160,7 @@ function finity.new(isdark, gprojectName, thinProject)
 									end
 								end)
 
-								if not s then warn("error: ".. e) end
+								if not s then warn("[Infinity Ware] error: ".. e) end
 							end
 
 							finity.gs["TweenService"]:Create(cheat.visiframe, TweenInfo.new(0.1), {
@@ -1193,7 +1193,7 @@ function finity.new(isdark, gprojectName, thinProject)
                                         end
 									end)
 
-									if not s then warn("error: ".. e) end
+									if not s then warn("[Infinity Ware] error: ".. e) end
 								end
 
 								finity.gs["TweenService"]:Create(cheat.visiframe, TweenInfo.new(0.1), {
@@ -1283,7 +1283,7 @@ function finity.new(isdark, gprojectName, thinProject)
 									callback()
 								end)
 
-								if not s then warn("error: ".. e) end
+								if not s then warn("[Infinity Ware] error: ".. e) end
 							end
                         end)
                         
@@ -1293,7 +1293,7 @@ function finity.new(isdark, gprojectName, thinProject)
 									callback()
 								end)
 
-								if not s then warn("error: ".. e) end
+								if not s then warn("[Infinity Ware] error: ".. e) end
 							end
                         end
 
@@ -1347,7 +1347,7 @@ function finity.new(isdark, gprojectName, thinProject)
 						end)
 						cheat.button.MouseButton1Up:Connect(function()
 							finity.gs["TweenService"]:Create(cheat.background, TweenInfo.new(0.2), {ImageColor3 = theme.button_background}):Play()
-							cheat.button.Text = "Infinity Ware"
+							cheat.button.Text = "Infinity Ware [🚀]"
 							
 							if connection then
 								connection:Disconnect()
@@ -1373,7 +1373,7 @@ function finity.new(isdark, gprojectName, thinProject)
 												callback(Input.KeyCode)
 											end)
 			
-											if not s then warn("error: ".. e) end
+											if not s then warn("[Infinity Ware] error: ".. e) end
 										end
 									end)
 								elseif Input.KeyCode == Enum.KeyCode.Backspace then
@@ -1387,7 +1387,7 @@ function finity.new(isdark, gprojectName, thinProject)
 												callback()
 											end)
 			
-											if not s then warn("error: ".. e) end
+											if not s then warn("[Infinity Ware] error: ".. e) end
 										end
 									end)
 
@@ -1413,7 +1413,7 @@ function finity.new(isdark, gprojectName, thinProject)
 										callback()
 									end)
 	
-									if not s then warn("error: ".. e) end
+									if not s then warn("[InfinityWare] error: ".. e) end
 								end
 							end)
 							
@@ -1436,7 +1436,7 @@ function finity.new(isdark, gprojectName, thinProject)
 										callback(Input.KeyCode)
 									end)
 	
-									if not s then warn("error: ".. e) end
+									if not s then warn("[Infinity Ware] error: ".. e) end
 								end
 							end
 						end)
