@@ -149,7 +149,7 @@ function finity.new(isdark, gprojectName, thinProject)
 		finityData.ToggleKey = NewKey
 		
 		if not projectName then
-			self2.tip.Text = "Press '".. string.sub(tostring(NewKey), 14) .."' to hide this menu"
+			self2.tip.Text = "Infinity Ware"
 		end
 		
 		if finityData.UpConnection then
@@ -1347,7 +1347,7 @@ function finity.new(isdark, gprojectName, thinProject)
 						end)
 						cheat.button.MouseButton1Up:Connect(function()
 							finity.gs["TweenService"]:Create(cheat.background, TweenInfo.new(0.2), {ImageColor3 = theme.button_background}):Play()
-							cheat.button.Text = "Press key..."
+							cheat.button.Text = "Infinity Ware"
 							
 							if connection then
 								connection:Disconnect()
