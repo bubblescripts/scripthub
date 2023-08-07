@@ -1494,3 +1494,4 @@ function finity.new(isdark, gprojectName, thinProject)
 end
 
 return finity
+print('[Infinity Ware [🚀] ]')
