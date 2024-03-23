@@ -95,18 +95,7 @@ Farming2:AddDropdown('MobMethod', {
             warn('[IW Supporter] Selected  :', Value)
         end
 })
-Farming3:AddDropdown('EnemiesZone', {
-    Values = EnemiesWorld,
-    Default = 'Pet Park', -- number index of the value / string
-    Multi = true, -- true / false, allows multiple choices to be selected
 
-    Text = 'Select Zone [For Enemies]',
-    Tooltip = 'Select Zone [For Zone Method]', -- Information shown when you hover over the textbox
-    Callback = function(Value)
-        getgenv().World = Value
-            warn('[IW Supporter] Selected  :', Value)
-        end
-})
 Farming2:AddDropdown('CubeSelect', {
     Values = {'Common', 'Rare', 'Epic','Legendary'},
     Default = 'Common', -- number index of the value / string
@@ -132,7 +121,7 @@ Farming2:AddDropdown('CubeSelect', {
     end
   })
 
-  Farming:AddToggle('AutoMobv1', { -- Flag Name goes here
+  Farming3:AddToggle('AutoMobv1', { -- Flag Name goes here
     Text = 'AutoMob [v1]', -- Toggle Text
     Default = false, -- Default value (true / false)
     Tooltip = 'Catching pets in map',
@@ -151,6 +140,18 @@ Farming2:AddDropdown('CubeSelect', {
                 task.wait(.25)
             end
         end)]]
+        Farming3:AddDropdown('EnemiesZone', {
+            Values = EnemiesWorld,
+            Default = 'Pet Park', -- number index of the value / string
+            Multi = true, -- true / false, allows multiple choices to be selected
+        
+            Text = 'Select Zone [For Enemies]',
+            Tooltip = 'Select Zone [For Zone Method]', -- Information shown when you hover over the textbox
+            Callback = function(Value)
+                getgenv().World = Value
+                    warn('[IW Supporter] Selected  :', Value)
+                end
+        })
 function AutoCatchbtw()
     if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
         while getgenv().AutoCatch and task.wait(3) do
