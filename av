@@ -17,7 +17,7 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
   World = {}
   for i,v in game:GetService("Workspace").Markers.WorldPets:GetChildren()
       table.insert(World,v.Name)
-end
+  end
 
 
 
@@ -79,8 +79,8 @@ end
             warn('[IW Supporter] Selected  :', Value)
         end
 })
-Farming2:AddDropdown('Zone', {
-    Values = {World},
+--[[Farming2:AddDropdown('Zone', {
+    Values = World,
     Default = 'Pet Park', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
 
@@ -90,7 +90,7 @@ Farming2:AddDropdown('Zone', {
         getgenv().Zone = Value
             warn('[IW Supporter] Selected  :', Value)
         end
-})
+})]]
 Farming2:AddDropdown('CubeSelect', {
     Values = {'Common', 'Rare', 'Epic','Legendary'},
     Default = 'Common', -- number index of the value / string
