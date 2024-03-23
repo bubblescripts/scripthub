@@ -77,6 +77,20 @@ end
             warn('[IW Supporter] Selected  :', Value)
         end
 })
+
+
+Farming2:AddDropdown('MobMethod', {
+    Values = {'All', 'Zone'},
+    Default = 'All', -- number index of the value / string
+    Multi = false, -- true / false, allows multiple choices to be selected
+
+    Text = 'Select Catch Method',
+    Tooltip = 'Select Catch Method', -- Information shown when you hover over the textbox
+    Callback = function(Value)
+        getgenv().MobMethod = Value
+            warn('[IW Supporter] Selected  :', Value)
+        end
+})
 --[[Farming2:AddDropdown('Zone', {
     World = {}
     for i,v in game:GetService("Workspace").Markers.WorldPets:GetChildren() do
