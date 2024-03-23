@@ -83,7 +83,7 @@ end
 })
 
 
-Farming2:AddDropdown('MobMethod', {
+--[[Farming2:AddDropdown('MobMethod', {
     Values = {'All', 'Zone'},
     Default = 'All', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
@@ -94,7 +94,7 @@ Farming2:AddDropdown('MobMethod', {
         getgenv().MobMethod = Value
             warn('[IW Supporter] Selected  :', Value)
         end
-})
+})]]
 
 Farming2:AddDropdown('CubeSelect', {
     Values = {'Common', 'Rare', 'Epic','Legendary'},
