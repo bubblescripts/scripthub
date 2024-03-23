@@ -140,7 +140,7 @@ Farming2:AddDropdown('CubeSelect', {
                 task.wait(.25)
             end
         end)]]
-        Farming2:AddDropdown('EnemiesZone', {
+       --[[ Farming2:AddDropdown('EnemiesZone', {
             Values = EnemiesWorld,
             Default = 'Pet Park', -- number index of the value / string
             Multi = false, -- true / false, allows multiple choices to be selected
@@ -151,7 +151,7 @@ Farming2:AddDropdown('CubeSelect', {
                 getgenv().World = Value
                     warn('[IW Supporter] Selected  :', Value)
                 end
-        })
+        })]]
 function AutoCatchbtw()
     if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
         while getgenv().AutoCatch and task.wait(3) do
