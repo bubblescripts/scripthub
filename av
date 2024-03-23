@@ -15,26 +15,7 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
       return s.." "..tostring(T[math.floor(d/3)])
   end
   
-function AutoCatchbtw()
-    if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
-        while getgenv().AutoCatch and task.wait(3) do
-            for _,v in game:GetService("Workspace").Rendered.Pets.World:GetChildren() do
-                table.insert(RenderedPets,v.Name)
-            local args1 = {
-            [1] = "PetInteraction",
-            [2] = v.Name
-        }
-        game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer(unpack(args1))
-        local args = {
-            [1] = "CapturePet",
-            [2] = v.Name,
-            [3] = getgenv().Cube
-        }
-        game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Function:InvokeServer(unpack(args))
-    end	
-end
-end
-end
+
 
 
 
@@ -135,7 +116,26 @@ Farming2:AddDropdown('CubeSelect', {
             print("bruh")
         end
 })
-
+function AutoCatchbtw()
+    if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
+        while getgenv().AutoCatch and task.wait(3) do
+            for _,v in game:GetService("Workspace").Rendered.Pets.World:GetChildren() do
+                table.insert(RenderedPets,v.Name)
+            local args1 = {
+            [1] = "PetInteraction",
+            [2] = v.Name
+        }
+        game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer(unpack(args1))
+        local args = {
+            [1] = "CapturePet",
+            [2] = v.Name,
+            [3] = getgenv().Cube
+        }
+        game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Function:InvokeServer(unpack(args))
+    end	
+end
+end
+end
 --[[function CatchingPets()
 if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
     local args = {
