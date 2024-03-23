@@ -77,7 +77,7 @@ end
             warn('[IW Supporter] Selected  :', Value)
         end
 })
-Farming2:AddDropdown('Zone', {
+--[[Farming2:AddDropdown('Zone', {
     Values = {GetWorlds(name)},
     Default = 'Pet Park', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
@@ -88,7 +88,7 @@ Farming2:AddDropdown('Zone', {
         getgenv().World = Value
             warn('[IW Supporter] Selected  :', Value)
         end
-})
+})]]
 Farming2:AddDropdown('CubeSelect', {
     Values = {'Common', 'Rare', 'Epic','Legendary'},
     Default = 'Common', -- number index of the value / string
