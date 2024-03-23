@@ -84,7 +84,7 @@ Farming2:AddDropdown('Zone', {
     Text = 'Select Zone [For Zone Method]',
     Tooltip = 'Select Zone [For Zone Method]', -- Information shown when you hover over the textbox
     Callback = function(Value)
-        getgenv().Zone = Value
+        getgenv().World = Value
             warn('[IW Supporter] Selected  :', Value)
         end
 })
