@@ -97,7 +97,7 @@ Farming2:AddDropdown('CubeSelect', {
 		warn('[IW Supporter] Selected :', Value)
 	end
 })
-function()
+function CatchingPets()
 if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
     local args = {
         [1] = "CapturePet",
@@ -109,7 +109,7 @@ end
 else
     print('bruh')
 end
-
+end
 local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
 
 -- I set NoUI so it does not show up in the keybinds menu
