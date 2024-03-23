@@ -115,7 +115,7 @@ Farming2:AddDropdown('CubeSelect', {
 
     end
   })
-Farming:AddToggle('AutoMob', { -- Flag Name goes here
+--[[Farming:AddToggle('AutoMob', { -- Flag Name goes here
 Text = 'AutoMobs v1', -- Toggle Text
 Default = false, -- Default value (true / false)
 Tooltip = 'Catching pets in map',
@@ -124,7 +124,7 @@ getgenv().AutoMobsv1 = Value
 warn('[IW Supporter] Selected :', Value)
 
 end
-})
+})]]
 function AutoCatchbtw()
     if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
         while getgenv().AutoCatch and task.wait(3) do
