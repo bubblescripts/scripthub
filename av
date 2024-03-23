@@ -77,7 +77,7 @@ end
             warn('[IW Supporter] Selected  :', Value)
         end
 })
-Farming2:AddDropdown('Zone', {
+--[[Farming2:AddDropdown('Zone', {
     World = {}
     for i,v in game:GetService("Workspace").Markers.WorldPets:GetChildren() do
     Values = {[v]},
@@ -92,7 +92,7 @@ Farming2:AddDropdown('Zone', {
         end
     end
 end
-})
+})]]
 Farming2:AddDropdown('CubeSelect', {
     Values = {'Common', 'Rare', 'Epic','Legendary'},
     Default = 'Common', -- number index of the value / string
