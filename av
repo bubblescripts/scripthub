@@ -80,9 +80,9 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
 Farming2:AddDropdown('Zone', {
 World = {}
 for i,v in game:GetService("Workspace").Markers.WorldPets:GetChildren()
-    table.insert(World,v.Name)
+    World = table.insert(World,v.Name)
 end
-    Values = v.Name,
+    Values = World,
     Default = 'Pet Park', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
 
@@ -122,7 +122,7 @@ Text = 'AutoMobs v1', -- Toggle Text
 Default = false, -- Default value (true / false)
 Tooltip = 'Catching pets in map',
 Callback = function(Value)
-getgenv().AutoCatch = Value
+getgenv().AutoMobsv1 = Value
 warn('[IW Supporter] Selected :', Value)
 
 end
