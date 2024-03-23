@@ -53,6 +53,7 @@
   
   
       -- Main
+  local humanoid = game.Players.LocalPlayer.Character.Humanoid
   local Information = Tabs.Information:AddLeftGroupbox('Statisctic : ')
   local Season = Tabs.Season:AddLeftGroupbox('Season Features : ')
   local Information2 = Tabs.Information:AddRightGroupbox('Script : ')
@@ -124,6 +125,21 @@ Farming2:AddDropdown('CubeSelect', {
 
   end
 })
+
+Farming:AddToggle('GodMode', { -- Flag Name goes here
+Text = 'GodMode', -- Toggle Text
+Default = false, -- Default value (true / false)
+Tooltip = 'Make u god',
+Callback = function(Value)
+getgenv().GodMode = Value
+warn('[IW Supporter] Selected :', Value)
+
+end
+})
+
+function GodMode()
+    humanoid.MaxHealth = math.huge
+end
 function AutoMobv1()
   while wait(0.1) do
       for i,v in game:GetService("Workspace").Markers.Enemies[getgenv().World]:FindFirstChild("Default"):GetChildren() do
@@ -144,6 +160,13 @@ spawn(function()
       end
   end)
   end)
+  spawn(function()
+    Toggles.GodMode:OnChanged(function()
+        while getgenv().GodMode and task.wait(0.1) do
+            GodMode()
+        end
+    end)
+    end)
   --[[spawn(function()
     while task.wait() do
         EnemiesID = {}
