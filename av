@@ -74,15 +74,15 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
         end
 })
 
-Farming2:AddDropdown('CubeSelect', {
-    Values = {'Common', 'Rare', 'Epic','Legendary'},
-    Default = 'Common', -- number index of the value / string
+Farming2:AddDropdown('FarmingMethod', {
+    Values = {'Rendered', 'All', 'Zone'},
+    Default = 'Rendered', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
 
-    Text = 'Select Cube ',
-    Tooltip = 'Select Cube', -- Information shown when you hover over the textbox
+    Text = 'Select Catch Method',
+    Tooltip = 'Select Catch Method', -- Information shown when you hover over the textbox
     Callback = function(Value)
-        getgenv().Cube = Value
+        getgenv().FarmingMethod = Value
             warn('[IW Supporter] Selected  :', Value)
         end
 })
