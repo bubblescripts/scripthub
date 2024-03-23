@@ -76,7 +76,7 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
             warn('[IW Supporter] Selected  :', Value)
         end
 })
-Farming2:AddDropdown('World', {
+Farming2:AddDropdown('Zone', {
     Values = World,
     Default = 'Pet Park', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
