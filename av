@@ -63,7 +63,7 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
   local Farming2 = Tabs.Main:AddRightGroupbox('Selection features : ')
   Farming2:AddDropdown('FarmingMethod', {
     Values = {'Rendered', 'All', 'Zone'},
-    Default = nil, -- number index of the value / string
+    Default = 'Rendered', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
 
     Text = 'Select Catch Method',
@@ -74,15 +74,15 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
         end
 })
 
-Farming2:AddDropdown('FarmingMethod', {
-    Values = {'Rendered', 'All', 'Zone'},
-    Default = nil, -- number index of the value / string
+Farming2:AddDropdown('CubeSelect', {
+    Values = {'Common', 'Rare', 'Epic','Legendary'},
+    Default = 'Common', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
 
-    Text = 'Select Catch Method',
-    Tooltip = 'Select Catch Method', -- Information shown when you hover over the textbox
+    Text = 'Select Cube ',
+    Tooltip = 'Select Cube', -- Information shown when you hover over the textbox
     Callback = function(Value)
-        getgenv().FarmingMethod = Value
+        getgenv().CubeSelect = Value
             warn('[IW Supporter] Selected  :', Value)
         end
 })
@@ -97,19 +97,11 @@ Farming2:AddDropdown('FarmingMethod', {
 		warn('[IW Supporter] Selected :', Value)
 	end
 })
---[[function CatchingPets()
+
 if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
-    local args = {
-        [1] = "CapturePet",
-        [2] = RenderedPets,
-        [3] = getgenv().Cube
-     }
-     game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Function:InvokeServer(unpack(args))
+    
 end
-else
-    print('bruh')
-end
-end]]
+
 local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
 
 -- I set NoUI so it does not show up in the keybinds menu
