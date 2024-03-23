@@ -1,215 +1,214 @@
-    if game.CoreGui:FindFirstChild("ScreenGui") then
-        game.CoreGui["ScreenGui"]:Destroy()
-    end
-    getgenv().loaded = true
-    RenderedPets = {}
-    for _,v in game:GetService("Workspace").Rendered.Pets.World:GetChildren() do
-        table.insert(RenderedPets,v.Name)
-    end
-    local T = {"K","M","B","T","Qa","Qi","Sx","Sp","Oc","Non"}
-    local function comma_value(n)
-        if not tonumber(n) then return n end
-        if n < 10000 then return math.floor(n) end
-        local d = math.floor(math.log10(n)/3)*3
-        local s = tostring(n/(10^d)):sub(1,5)
-        return s.." "..tostring(T[math.floor(d/3)])
-    end
-    World = {}
-    for i,v in game:GetService("Workspace").Markers.WorldPets:GetChildren() do
-        table.insert(World,v.Name)
-    
+if game.CoreGui:FindFirstChild("ScreenGui") then
+    game.CoreGui["ScreenGui"]:Destroy()
+  end
+  getgenv().loaded = true
+  RenderedPets = {}
+  for _,v in game:GetService("Workspace").Rendered.Pets.World:GetChildren() do
+    table.insert(RenderedPets,v.Name)
+  end
+  local T = {"K","M","B","T","Qa","Qi","Sx","Sp","Oc","Non"}
+  local function comma_value(n)
+      if not tonumber(n) then return n end
+      if n < 10000 then return math.floor(n) end
+      local d = math.floor(math.log10(n)/3)*3
+      local s = tostring(n/(10^d)):sub(1,5)
+      return s.." "..tostring(T[math.floor(d/3)])
+  end
+  World = {}
+  for i,v in game:GetService("Workspace").Markers.WorldPets:GetChildren() do
+      table.insert(World,v.Name)
+  end
 
 
 
 
-    local gamename = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
-    local repo = 'https://raw.githubusercontent.com/NecoWareHub/Hub/main/'
-    
-    local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
-    local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
-    local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
-    
-    local Window = Library:CreateWindow({
-    
-        Title = 'InfinityWare | v.1.1 | '..gamename,
-        Center = true,
-        AutoShow = true,
-        TabPadding = 5,
-        MenuFadeTime = 0.5,
-    })
-    -- CALLBACK NOTE:
-    -- Passing in callback functions via the initial element parameters (i.e. Callback = function(Value)...) works
-    -- HOWEVER, using Toggles/Options.INDEX:OnChanged(function(Value) ... ) is the RECOMMENDED way to do this.
-    -- I strongly recommend decoupling UI code from logic code. i.e. Create your UI elements FIRST, and THEN setup :OnChanged functions later.
-    
-    -- You do not have to set your tabs & groups up this way, just a prefrence.
-    local Tabs = {
-        -- Main
-        Information = Window:AddTab('Information'),
-        Main = Window:AddTab('Main'),
-        AutoHatch = Window:AddTab('AutoOpen'),
-        Webhook = Window:AddTab('Webhook'),
-        Season = Window:AddTab('Season'),
-        ['UI Settings'] = Window:AddTab('Settings'),
-    }
-    
-    
-        -- Main
-    local Information = Tabs.Information:AddLeftGroupbox('Statisctic : ')
-    local Season = Tabs.Season:AddLeftGroupbox('Season Features : ')
-    local Information2 = Tabs.Information:AddRightGroupbox('Script : ')
-    local User = Information:AddLabel('User : '..game.Players.LocalPlayer.Name,false)
-    local UserId = Information:AddLabel('Userid : '..game.Players.LocalPlayer.UserId,false)
-    local gameid = Information:AddLabel('PlaceId : '..game.PlaceId,false)
-    local Game = Information:AddLabel('Game : '..gamename,false)
-    local Farming = Tabs.Main:AddLeftGroupbox('Farming features : ')
-    local Farming2 = Tabs.Main:AddRightGroupbox('Selection features : ')
-    Farming2:AddDropdown('FarmingMethod', {
-        Values = {'Rendered', 'All', 'Zone'},
-        Default = 'Rendered', -- number index of the value / string
-        Multi = false, -- true / false, allows multiple choices to be selected
+  local gamename = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+  local repo = 'https://raw.githubusercontent.com/NecoWareHub/Hub/main/'
+  
+  local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
+  local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
+  local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
+  
+  local Window = Library:CreateWindow({
+  
+      Title = 'InfinityWare | v.1.1 | '..gamename,
+      Center = true,
+      AutoShow = true,
+      TabPadding = 5,
+      MenuFadeTime = 0.5,
+  })
+  -- CALLBACK NOTE:
+  -- Passing in callback functions via the initial element parameters (i.e. Callback = function(Value)...) works
+  -- HOWEVER, using Toggles/Options.INDEX:OnChanged(function(Value) ... ) is the RECOMMENDED way to do this.
+  -- I strongly recommend decoupling UI code from logic code. i.e. Create your UI elements FIRST, and THEN setup :OnChanged functions later.
+  
+  -- You do not have to set your tabs & groups up this way, just a prefrence.
+  local Tabs = {
+      -- Main
+      Information = Window:AddTab('Information'),
+      Main = Window:AddTab('Main'),
+      AutoHatch = Window:AddTab('AutoOpen'),
+      Webhook = Window:AddTab('Webhook'),
+      Season = Window:AddTab('Season'),
+      ['UI Settings'] = Window:AddTab('Settings'),
+  }
+  
+  
+      -- Main
+  local Information = Tabs.Information:AddLeftGroupbox('Statisctic : ')
+  local Season = Tabs.Season:AddLeftGroupbox('Season Features : ')
+  local Information2 = Tabs.Information:AddRightGroupbox('Script : ')
+  local User = Information:AddLabel('User : '..game.Players.LocalPlayer.Name,false)
+  local UserId = Information:AddLabel('Userid : '..game.Players.LocalPlayer.UserId,false)
+  local gameid = Information:AddLabel('PlaceId : '..game.PlaceId,false)
+  local Game = Information:AddLabel('Game : '..gamename,false)
+  local Farming = Tabs.Main:AddLeftGroupbox('Farming features : ')
+  local Farming2 = Tabs.Main:AddRightGroupbox('Selection features : ')
+  Farming2:AddDropdown('FarmingMethod', {
+    Values = {'Rendered', 'All', 'Zone'},
+    Default = 'Rendered', -- number index of the value / string
+    Multi = false, -- true / false, allows multiple choices to be selected
 
-        Text = 'Select Catch Method',
-        Tooltip = 'Select Catch Method', -- Information shown when you hover over the textbox
-        Callback = function(Value)
-            getgenv().FarmingMethod = Value
-                warn('[IW Supporter] Selected  :', Value)
-            end
-    })
-    Farming2:AddDropdown('Zone', {
-        Values = World,
-        Default = 'Pet Park', -- number index of the value / string
-        Multi = false, -- true / false, allows multiple choices to be selected
-
-        Text = 'Select Zone [For Zone Method]',
-        Tooltip = 'Select Zone [For Zone Method]', -- Information shown when you hover over the textbox
-        Callback = function(Value)
-            getgenv().World = Value
-                warn('[IW Supporter] Selected  :', Value)
-            end
+    Text = 'Select Catch Method',
+    Tooltip = 'Select Catch Method', -- Information shown when you hover over the textbox
+    Callback = function(Value)
+        getgenv().FarmingMethod = Value
+            warn('[IW Supporter] Selected  :', Value)
         end
-    })
-    Farming2:AddDropdown('CubeSelect', {
-        Values = {'Common', 'Rare', 'Epic','Legendary'},
-        Default = 'Common', -- number index of the value / string
-        Multi = false, -- true / false, allows multiple choices to be selected
+})
+Farming2:AddDropdown('Zone', {
+    Values = {World},
+    Default = 'Pet Park', -- number index of the value / string
+    Multi = false, -- true / false, allows multiple choices to be selected
 
-        Text = 'Select Cube ',
-        Tooltip = 'Select Cube', -- Information shown when you hover over the textbox
-        Callback = function(Value)
-            getgenv().CubeSelect = Value
-                warn('[IW Supporter] Selected  :', Value)
-            end
-    })
-
-
-    Farming:AddToggle('AutoCatch', { -- Flag Name goes here
-        Text = 'AutoCatch', -- Toggle Text
-        Default = false, -- Default value (true / false)
-        Tooltip = 'Catching pets in map',
-        Callback = function(Value)
-        getgenv().AutoCatch = Value
-        warn('[IW Supporter] Selected :', Value)
-
+    Text = 'Select Zone [For Zone Method]',
+    Tooltip = 'Select Zone [For Zone Method]', -- Information shown when you hover over the textbox
+    Callback = function(Value)
+        getgenv().World = Value
+            warn('[IW Supporter] Selected  :', Value)
         end
-    })
-    --[[Farming:AddToggle('AutoMob', { -- Flag Name goes here
-    Text = 'AutoMobs v1', -- Toggle Text
+})
+Farming2:AddDropdown('CubeSelect', {
+    Values = {'Common', 'Rare', 'Epic','Legendary'},
+    Default = 'Common', -- number index of the value / string
+    Multi = false, -- true / false, allows multiple choices to be selected
+
+    Text = 'Select Cube ',
+    Tooltip = 'Select Cube', -- Information shown when you hover over the textbox
+    Callback = function(Value)
+        getgenv().CubeSelect = Value
+            warn('[IW Supporter] Selected  :', Value)
+        end
+})
+
+
+  Farming:AddToggle('AutoCatch', { -- Flag Name goes here
+    Text = 'AutoCatch', -- Toggle Text
     Default = false, -- Default value (true / false)
     Tooltip = 'Catching pets in map',
-    Callback = function(Value)
-    getgenv().AutoMobsv1 = Value
-    warn('[IW Supporter] Selected :', Value)
+	Callback = function(Value)
+	getgenv().AutoCatch = Value
+	warn('[IW Supporter] Selected :', Value)
 
     end
-    })]]
-    function AutoCatchbtw()
-        if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
-            while getgenv().AutoCatch and task.wait(3) do
-                for _,v in game:GetService("Workspace").Rendered.Pets.World:GetChildren() do
-                    table.insert(RenderedPets,v.Name)
-                local args1 = {
-                [1] = "PetInteraction",
-                [2] = v.Name
-            }
-            game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer(unpack(args1))
-            local args = {
-                [1] = "CapturePet",
-                [2] = v.Name,
-                [3] = getgenv().Cube
-            }
-            game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Function:InvokeServer(unpack(args))
-        end	
-    end
-    end
-    end
-    --[[function CatchingPets()
+  })
+--[[Farming:AddToggle('AutoMob', { -- Flag Name goes here
+Text = 'AutoMobs v1', -- Toggle Text
+Default = false, -- Default value (true / false)
+Tooltip = 'Catching pets in map',
+Callback = function(Value)
+getgenv().AutoMobsv1 = Value
+warn('[IW Supporter] Selected :', Value)
+
+end
+})]]
+function AutoCatchbtw()
     if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
+        while getgenv().AutoCatch and task.wait(3) do
+            for _,v in game:GetService("Workspace").Rendered.Pets.World:GetChildren() do
+                table.insert(RenderedPets,v.Name)
+            local args1 = {
+            [1] = "PetInteraction",
+            [2] = v.Name
+        }
+        game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer(unpack(args1))
         local args = {
             [1] = "CapturePet",
-            [2] = RenderedPets,
+            [2] = v.Name,
             [3] = getgenv().Cube
         }
         game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Function:InvokeServer(unpack(args))
-    end
-    else
-        print('bruh')
-    end
-    end--]]
+    end	
+end
+end
+end
+--[[function CatchingPets()
+if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
+    local args = {
+        [1] = "CapturePet",
+        [2] = RenderedPets,
+        [3] = getgenv().Cube
+     }
+     game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Function:InvokeServer(unpack(args))
+end
+else
+    print('bruh')
+end
+end--]]
 
 
-    --[[spawn(function()
-        Toggles.AutoCatch:OnChanged(function()
-            while getgenv().AutoCatch and task.wait(3) do
-                CatchingPets()
-            end
-        end)
-    end)--]]
+--[[spawn(function()
+    Toggles.AutoCatch:OnChanged(function()
+        while getgenv().AutoCatch and task.wait(3) do
+            CatchingPets()
+        end
+    end)
+end)--]]
 
 
-    spawn(function()
-        Toggles.AutoCatch:OnChanged(function()
-            while getgenv().AutoCatch and task.wait(3) do
-                AutoCatchbtw()
-            end
-        end)
-        end)
+spawn(function()
+    Toggles.AutoCatch:OnChanged(function()
+        while getgenv().AutoCatch and task.wait(3) do
+            AutoCatchbtw()
+        end
+    end)
+    end)
 
 
-    local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
+local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
 
-    -- I set NoUI so it does not show up in the keybinds menu
-    MenuGroup:AddButton('Unload', function() Library:Unload() end)
-    MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'End', NoUI = true, Text = 'Menu keybind' })
+-- I set NoUI so it does not show up in the keybinds menu
+MenuGroup:AddButton('Unload', function() Library:Unload() end)
+MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'End', NoUI = true, Text = 'Menu keybind' })
 
-    Library.ToggleKeybind = Options.MenuKeybind -- Allows you to have a custom keybind for the menu
+Library.ToggleKeybind = Options.MenuKeybind -- Allows you to have a custom keybind for the menu
 
-    -- Addons:
-    -- SaveManager (Allows you to have a configuration system)
-    -- ThemeManager (Allows you to have a menu theme system)
+-- Addons:
+-- SaveManager (Allows you to have a configuration system)
+-- ThemeManager (Allows you to have a menu theme system)
 
-    -- Hand the library over to our managers
-    ThemeManager:SetLibrary(Library)
-    SaveManager:SetLibrary(Library)
+-- Hand the library over to our managers
+ThemeManager:SetLibrary(Library)
+SaveManager:SetLibrary(Library)
 
-    -- Ignore keys that are used by ThemeManager.
-    -- (we dont want configs to save themes, do we?)
+-- Ignore keys that are used by ThemeManager.
+-- (we dont want configs to save themes, do we?)
 
 
-    -- Adds our MenuKeybind to the ignore list
-    -- (do you want each config to have a different menu key? probably not.)
-    SaveManager:SetIgnoreIndexes({ 'MenuKeybind' })
-    -- use case for doing it this way:
-    -- a script hub could have themes in a global folder
-    -- and game configs in a separate folder per game
-    ThemeManager:SetFolder('LinoriaLibSettings')
-    SaveManager:SetFolder('InfinityWare/specific-game')
-    -- Builds our config menu on the right side of our tab
-    -- Builds our theme menu (with plenty of built in themes) on the left side
-    -- NOTE: you can also call ThemeManager:ApplyToGroupbox to add it to a specific groupbox
-    ThemeManager:ApplyToTab(Tabs['UI Settings'])
-    ThemeManager:ApplyTheme('Jester')
-    SaveManager:BuildConfigSection(Tabs['UI Settings'])
-    -- You can use the SaveManager:LoadAutoloadConfig() to load a config
-    -- which has been marked to be one that auto loads!
-    SaveManager:LoadAutoloadConfig()
+-- Adds our MenuKeybind to the ignore list
+-- (do you want each config to have a different menu key? probably not.)
+SaveManager:SetIgnoreIndexes({ 'MenuKeybind' })
+-- use case for doing it this way:
+-- a script hub could have themes in a global folder
+-- and game configs in a separate folder per game
+ThemeManager:SetFolder('LinoriaLibSettings')
+SaveManager:SetFolder('InfinityWare/specific-game')
+-- Builds our config menu on the right side of our tab
+-- Builds our theme menu (with plenty of built in themes) on the left side
+-- NOTE: you can also call ThemeManager:ApplyToGroupbox to add it to a specific groupbox
+ThemeManager:ApplyToTab(Tabs['UI Settings'])
+ThemeManager:ApplyTheme('Jester')
+SaveManager:BuildConfigSection(Tabs['UI Settings'])
+-- You can use the SaveManager:LoadAutoloadConfig() to load a config
+-- which has been marked to be one that auto loads!
+SaveManager:LoadAutoloadConfig()
