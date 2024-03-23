@@ -121,7 +121,7 @@ Farming2:AddDropdown('CubeSelect', {
     end
   })
 
-  Farming:AddToggle('AutoMobv1', { -- Flag Name goes here
+  --[[Farming:AddToggle('AutoMobv1', { -- Flag Name goes here
     Text = 'AutoMob [v1]', -- Toggle Text
     Default = false, -- Default value (true / false)
     Tooltip = 'Catching pets in map',
@@ -130,7 +130,7 @@ Farming2:AddDropdown('CubeSelect', {
 	warn('[IW Supporter] Selected :', Value)
 
     end
-  })
+  })]]
   --[[spawn(function()
     while task.wait() do
         EnemiesID = {}
