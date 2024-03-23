@@ -96,6 +96,16 @@ Farming2:AddDropdown('CubeSelect', {
 		getgenv().AutoCatch = Value
 		warn('[IW Supporter] Selected :', Value)
 	end
+    if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
+        local args = {
+            [1] = "CapturePet",
+            [2] = RenderedPets,
+            [3] = getgenv().Cube
+         }
+         game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Function:InvokeServer(unpack(args))
+        else
+            print("bruh")
+        end
 })
 
 --[[function CatchingPets()
