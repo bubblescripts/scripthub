@@ -79,7 +79,7 @@ end
         end
 })
 Farming2:AddDropdown('Zone', {
-    Values = GetWorlds(name),
+    Values = {'1','Pet Park'},
     Default = 'Pet Park', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
 
