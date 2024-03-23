@@ -63,7 +63,7 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
   local Farming2 = Tabs.Main:AddRightGroupbox('Selection features : ')
   Farming2:AddDropdown('FarmingMethod', {
     Values = {'Rendered', 'All', 'Zone'},
-    Default = 'Rendered', -- number index of the value / string
+    Default = nil, -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
 
     Text = 'Select Catch Method',
@@ -76,7 +76,7 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
 
 Farming2:AddDropdown('FarmingMethod', {
     Values = {'Rendered', 'All', 'Zone'},
-    Default = 'Rendered', -- number index of the value / string
+    Default = nil, -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
 
     Text = 'Select Catch Method',
