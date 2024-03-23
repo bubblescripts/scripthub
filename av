@@ -68,6 +68,7 @@ end
   local Game = Information:AddLabel('Game : '..gamename,false)
   local Farming = Tabs.Main:AddLeftGroupbox('Farming features : ')
   local Farming2 = Tabs.Main:AddRightGroupbox('Selection features : ')
+  local Farming3 = Tabs.Main:AddRightGroupbox('Enemies features : ')
   Farming2:AddDropdown('FarmingMethod', {
     Values = {'Rendered', 'All', 'Zone'},
     Default = 'Rendered', -- number index of the value / string
@@ -94,7 +95,7 @@ Farming2:AddDropdown('MobMethod', {
             warn('[IW Supporter] Selected  :', Value)
         end
 })
-Farming2:AddDropdown('EnemiesZone', {
+Farming3:AddDropdown('EnemiesZone', {
     Values = EnemiesWorld,
     Default = 'Pet Park', -- number index of the value / string
     Multi = true, -- true / false, allows multiple choices to be selected
