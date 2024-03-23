@@ -95,15 +95,12 @@ Farming2:AddDropdown('CubeSelect', {
 
   Farming:AddToggle('AutoCatch', { -- Flag Name goes here
     Text = 'AutoCatch', -- Toggle Text
-    Default = true, -- Default value (true / false)
+    Default = false, -- Default value (true / false)
     Tooltip = 'Catching pets in map',
 	Callback = function(Value)
 	getgenv().AutoCatch = Value
 	warn('[IW Supporter] Selected :', Value)
-    --[[if getgenv().AutoCatch == true then
-        AutoCatchbtw()
-        return AutoCatchbtw()
-    end]]
+
 end
 })
 function AutoCatchbtw()
@@ -150,7 +147,13 @@ end--]]
 end)--]]
 
 
-
+spawn(function()
+    Toggles.AutoCatch:OnChanged(function()
+        while getgenv().AutoCatch and task.wait(3) do
+            AutoCatchbtw()
+        end
+    end)
+    end)
 
 
 local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
