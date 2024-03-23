@@ -112,6 +112,19 @@ else
 end
 end
 
+
+spawn(function()
+    Toggles.AutoCatch:OnChanged(function()
+        while getgenv().AutoCatch and task.wait(3) do
+            CatchingPets()
+        end
+    end)
+end)
+
+
+
+
+
 local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
 
 -- I set NoUI so it does not show up in the keybinds menu
