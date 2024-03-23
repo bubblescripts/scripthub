@@ -19,7 +19,12 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
       table.insert(EnemiesWorld,v.Name)
   end
 
-
+function GetWorlds(name)
+    World = {}
+    for i,v in game:GetService("Workspace").Markers.WorldPets:GetChildren() do
+        name = table.insert(World,v.Name)
+    end
+end
 
   local gamename = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
   local repo = 'https://raw.githubusercontent.com/NecoWareHub/Hub/main/'
@@ -63,8 +68,7 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
   local Game = Information:AddLabel('Game : '..gamename,false)
   local Farming = Tabs.Main:AddLeftGroupbox('Farming features : ')
   local Farming2 = Tabs.Main:AddRightGroupbox('Selection features : ')
-  
-  --[[Farming2:AddDropdown('FarmingMethod', {
+  Farming2:AddDropdown('FarmingMethod', {
     Values = {'Rendered', 'All', 'Zone'},
     Default = 'Rendered', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
@@ -75,10 +79,10 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
         getgenv().FarmingMethod = Value
             warn('[IW Supporter] Selected  :', Value)
         end
-})]]
+})
 
 
---[[Farming2:AddDropdown('MobMethod', {
+Farming2:AddDropdown('MobMethod', {
     Values = {'All', 'Zone'},
     Default = 'All', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
@@ -89,9 +93,9 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
         getgenv().MobMethod = Value
             warn('[IW Supporter] Selected  :', Value)
         end
-})]]
+})
 
---[[Farming2:AddDropdown('CubeSelect', {
+Farming2:AddDropdown('CubeSelect', {
     Values = {'Common', 'Rare', 'Epic','Legendary'},
     Default = 'Common', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
@@ -103,7 +107,7 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
             warn('[IW Supporter] Selected  :', Value)
         end
 })
-]]
+
 
   Farming:AddToggle('AutoCatch', { -- Flag Name goes here
     Text = 'AutoCatch', -- Toggle Text
@@ -116,7 +120,7 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
     end
   })
 
-  --[[Farming:AddToggle('AutoMobv1', { -- Flag Name goes here
+  Farming3:AddToggle('AutoMobv1', { -- Flag Name goes here
     Text = 'AutoMob [v1]', -- Toggle Text
     Default = false, -- Default value (true / false)
     Tooltip = 'Catching pets in map',
@@ -125,7 +129,7 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
 	warn('[IW Supporter] Selected :', Value)
 
     end
-  })]]
+  })
   --[[spawn(function()
     while task.wait() do
         EnemiesID = {}
@@ -135,7 +139,7 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
                 task.wait(.25)
             end
         end)]]
-       --[[ Farming2:AddDropdown('EnemiesZone', {
+        Farming2:AddDropdown('EnemiesZone', {
             Values = EnemiesWorld,
             Default = 'Pet Park', -- number index of the value / string
             Multi = false, -- true / false, allows multiple choices to be selected
@@ -146,7 +150,7 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
                 getgenv().World = Value
                     warn('[IW Supporter] Selected  :', Value)
                 end
-        })]]
+        })
 function AutoCatchbtw()
     if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
         while getgenv().AutoCatch and task.wait(3) do
@@ -167,22 +171,6 @@ function AutoCatchbtw()
 end
 end
 end
-
-
---[[function  AutoMobv1()
-    if getgenv().AutoMobv1 == true then
-        while wait(0.1) do
-            for i,v in game:GetService("Workspace").Markers.Enemies[getgenv().World]:FindFirstChild("Default"):GetChildren() do
-                if v:IsA('Folder') then
-                 local args = {
-                    [1] = "TargetEnemy",
-                    [2] = v.Name
-                }
-            game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer(unpack(args))
-            end
-        end
-    end
-    end]]
 --[[function CatchingPets()
 if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
     local args = {
