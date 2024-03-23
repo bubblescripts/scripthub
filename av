@@ -98,7 +98,7 @@ Farming2:AddDropdown('CubeSelect', {
 	end
 })
 
-function CatchingPets()
+--[[function CatchingPets()
 if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
     local args = {
         [1] = "CapturePet",
@@ -110,7 +110,7 @@ end
 else
     print('bruh')
 end
-end
+end--]]
 
 
 --[[spawn(function()
