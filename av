@@ -1,6 +1,6 @@
-if game.CoreGui:FindFirstChild("ScreenGui") then
-    game.CoreGui["ScreenGui"]:Destroy()
-  end
+    if game.CoreGui:FindFirstChild("ScreenGui") then
+        game.CoreGui["ScreenGui"]:Destroy()
+    end
   getgenv().loaded = true
   RenderedPets = {}
   for _,v in game:GetService("Workspace").Rendered.Pets.World:GetChildren() do
@@ -171,6 +171,23 @@ function AutoCatchbtw()
 end
 end
 end
+
+
+function AutoMobv1()
+    if getgenv().AutoMobv1 == true then
+        while wait(0.1) do
+            for i,v in game:GetService("Workspace").Markers.Enemies[getgenv().World]:FindFirstChild("Default"):GetChildren() do
+                if v:IsA('Folder') then
+                 local args = {
+                    [1] = "TargetEnemy",
+                    [2] = v.Name
+                }
+            game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer(unpack(args))
+            end
+        end
+    end
+    end
+
 --[[function CatchingPets()
 if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
     local args = {
@@ -202,6 +219,13 @@ spawn(function()
         end
     end)
     end)
+    spawn(function()
+        Toggles.AutoMobv1:OnChanged(function()
+            while getgenv().AutoMobv1 and task.wait(0.1) do
+                AutoMobv1()
+            end
+        end)
+        end)
 
 
 local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
