@@ -68,7 +68,6 @@ end
   local Game = Information:AddLabel('Game : '..gamename,false)
   local Farming = Tabs.Main:AddLeftGroupbox('Farming features : ')
   local Farming2 = Tabs.Main:AddRightGroupbox('Selection features : ')
-  local Farming3 = Tabs.Main:AddRightGroupbox('Enemies features : ')
   Farming2:AddDropdown('FarmingMethod', {
     Values = {'Rendered', 'All', 'Zone'},
     Default = 'Rendered', -- number index of the value / string
@@ -121,7 +120,7 @@ Farming2:AddDropdown('CubeSelect', {
     end
   })
 
-  Farming3:AddToggle('AutoMobv1', { -- Flag Name goes here
+  Farming:AddToggle('AutoMobv1', { -- Flag Name goes here
     Text = 'AutoMob [v1]', -- Toggle Text
     Default = false, -- Default value (true / false)
     Tooltip = 'Catching pets in map',
@@ -140,7 +139,7 @@ Farming2:AddDropdown('CubeSelect', {
                 task.wait(.25)
             end
         end)]]
-        Farming3:AddDropdown('EnemiesZone', {
+        Farming2:AddDropdown('EnemiesZone', {
             Values = EnemiesWorld,
             Default = 'Pet Park', -- number index of the value / string
             Multi = false, -- true / false, allows multiple choices to be selected
