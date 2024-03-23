@@ -117,19 +117,20 @@ Farming2:AddDropdown('CubeSelect', {
 
     end
   })
---[[Farming:AddToggle('AutoMob', { -- Flag Name goes here
-Text = 'AutoMobs v1', -- Toggle Text
-Default = false, -- Default value (true / false)
-Tooltip = 'Catching pets in map',
-Callback = function(Value)
-getgenv().AutoMobsv1 = Value
-warn('[IW Supporter] Selected :', Value)
 
-end
-})]]
+  Farming:AddToggle('AutoMobv1', { -- Flag Name goes here
+    Text = 'AutoMob [v1]', -- Toggle Text
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Catching pets in map',
+	Callback = function(Value)
+	getgenv().AutoMobv1 = Value
+	warn('[IW Supporter] Selected :', Value)
+
+    end
+  })
 function AutoCatchbtw()
     if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
-        while getgenv().AutoCatch and task.wait(1) do
+        while getgenv().AutoCatch and task.wait(3) do
             for _,v in game:GetService("Workspace").Rendered.Pets.World:GetChildren() do
                 table.insert(RenderedPets,v.Name)
             local args1 = {
