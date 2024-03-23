@@ -82,7 +82,7 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
 Farming2:AddDropdown('Zone', {
     Values = World,
     Default = 'Pet Park', -- number index of the value / string
-    Multi = true, -- true / false, allows multiple choices to be selected
+    Multi = false, -- true / false, allows multiple choices to be selected
 
     Text = 'Select Zone [For Zone Method]',
     Tooltip = 'Select Zone [For Zone Method]', -- Information shown when you hover over the textbox
