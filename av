@@ -169,13 +169,13 @@ end--]]
 end)--]]
 
 
-spawn(function()
+--[[spawn(function()
     Toggles.AutoCatch:OnChanged(function()
         while getgenv().AutoCatch and task.wait(3) do
             AutoCatchbtw()
         end
     end)
-    end)
+    end)]]
 
 
 local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
