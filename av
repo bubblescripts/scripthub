@@ -91,7 +91,7 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
         end
 })]]
 
-Farming2:AddDropdown('CubeSelect', {
+--[[Farming2:AddDropdown('CubeSelect', {
     Values = {'Common', 'Rare', 'Epic','Legendary'},
     Default = 'Common', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
@@ -103,7 +103,7 @@ Farming2:AddDropdown('CubeSelect', {
             warn('[IW Supporter] Selected  :', Value)
         end
 })
-
+]]
 
   Farming:AddToggle('AutoCatch', { -- Flag Name goes here
     Text = 'AutoCatch', -- Toggle Text
