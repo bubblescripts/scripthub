@@ -107,7 +107,7 @@ if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
      game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Function:InvokeServer(unpack(args))
 end
 else
-    print(bruh)
+    print('bruh')
 end
 
 local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
