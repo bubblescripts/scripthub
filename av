@@ -174,7 +174,7 @@ end
 end
 
 
-function  AutoMobv1()
+--[[function  AutoMobv1()
     if getgenv().AutoMobv1 == true then
         while wait(0.1) do
             for i,v in game:GetService("Workspace").Markers.Enemies[getgenv().World]:FindFirstChild("Default"):GetChildren() do
@@ -187,7 +187,7 @@ function  AutoMobv1()
             end
         end
     end
-    end
+    end]]
 --[[function CatchingPets()
 if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
     local args = {
