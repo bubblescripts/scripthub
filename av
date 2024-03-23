@@ -141,11 +141,15 @@ Farming2:AddDropdown('CubeSelect', {
 
     end
   })
-  EnemiesID = {}
-for i,v in game:GetService("Workspace").Markers.Enemies[getgenv().World].Deffault:GetChildren()
-    print(EnemiesId,v.Name)
-end
-
+  --[[spawn(function()
+    while task.wait() do
+        EnemiesID = {}
+            for i,v in game:GetService("Workspace").Markers.Enemies[getgenv().World].Deffault:GetChildren()
+                print(EnemiesId,v.Name)
+            end
+                task.wait(.25)
+            end
+        end)]]
 function AutoCatchbtw()
     if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
         while getgenv().AutoCatch and task.wait(3) do
