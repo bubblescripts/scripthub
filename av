@@ -19,8 +19,7 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
 function GetWorlds(name)
     World = {}
     for i,v in game:GetService("Workspace").Markers.WorldPets:GetChildren() do
-        table.insert(World,v.Name)
-        name=v.Name
+        name = table.insert(World,v.Name)
     end
 end
 
