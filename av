@@ -2,7 +2,10 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
     game.CoreGui["ScreenGui"]:Destroy()
   end
   getgenv().loaded = true
-
+  RenderedPets = {}
+  for _,v in game:GetService("Workspace").Rendered.Pets.World:GetChildren() do
+    table.insert(RenderedPets,v.Name)
+  end
   local T = {"K","M","B","T","Qa","Qi","Sx","Sp","Oc","Non"}
   local function comma_value(n)
       if not tonumber(n) then return n end
@@ -56,9 +59,9 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
   local UserId = Information:AddLabel('Userid : '..game.Players.LocalPlayer.UserId,false)
   local gameid = Information:AddLabel('PlaceId : '..game.PlaceId,false)
   local Game = Information:AddLabel('Game : '..gamename,false)
-  local Farming = Tabs.Main:AddLeftGroupbox('Main features : ')
-
-  Farming:AddDropdown('FarmingMethod', {
+  local Farming = Tabs.Main:AddLeftGroupbox('Farming features : ')
+  local Farming2 = Tabs.Main:AddRightGroupbox('Selection features : ')
+  Farming2:AddDropdown('FarmingMethod', {
     Values = {'Rendered', 'All', 'Zone'},
     Default = 'Rendered', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
@@ -71,7 +74,33 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
         end
 })
 
-  
+Farming2:AddDropdown('CubeSelect', {
+    Values = {'Rendered', 'All', 'Zone'},
+    Default = 'Rendered', -- number index of the value / string
+    Multi = false, -- true / false, allows multiple choices to be selected
+
+    Text = 'Select Catch Method',
+    Tooltip = 'This is a tooltip', -- Information shown when you hover over the textbox
+    Callback = function(Value)
+        getgenv().FarmingMethod = Value
+            warn('[IW Supporter] Selected  :', Value)
+        end
+})
+
+
+  Farming:AddToggle('AutoCatch', { -- Flag Name goes here
+    Text = 'AutoCatch', -- Toggle Text
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Catching pets in map',
+	Callback = function(Value)
+		getgenv().AutoCatch = Value
+		warn('[IW Supporter] Selected :', Value)
+	end
+})
+
+if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
+    
+end
 
 local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
 
