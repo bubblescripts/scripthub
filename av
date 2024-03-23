@@ -68,7 +68,7 @@ end
   local Game = Information:AddLabel('Game : '..gamename,false)
   local Farming = Tabs.Main:AddLeftGroupbox('Farming features : ')
   local Farming2 = Tabs.Main:AddRightGroupbox('Selection features : ')
-  local Farming3 = Tabs.Main:AddRightGroupbox('Enemies features : ')
+  local Farming3 = Tabs.Main:AddLeftGroupBox('Enemies features : ')
   Farming2:AddDropdown('FarmingMethod', {
     Values = {'Rendered', 'All', 'Zone'},
     Default = 'Rendered', -- number index of the value / string
@@ -143,7 +143,7 @@ Farming2:AddDropdown('CubeSelect', {
         Farming3:AddDropdown('EnemiesZone', {
             Values = EnemiesWorld,
             Default = 'Pet Park', -- number index of the value / string
-            Multi = true, -- true / false, allows multiple choices to be selected
+            Multi = false, -- true / false, allows multiple choices to be selected
         
             Text = 'Select Zone [For Enemies]',
             Tooltip = 'Select Zone [For Zone Method]', -- Information shown when you hover over the textbox
