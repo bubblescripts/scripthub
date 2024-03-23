@@ -78,7 +78,9 @@ end
         end
 })
 Farming2:AddDropdown('Zone', {
-    Values = {GetWorlds(name)},
+    World = {}
+    for i,v in game:GetService("Workspace").Markers.WorldPets:GetChildren() do
+    Values = {v.Name},
     Default = 'Pet Park', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
 
@@ -88,6 +90,7 @@ Farming2:AddDropdown('Zone', {
         getgenv().World = Value
             warn('[IW Supporter] Selected  :', Value)
         end
+    end
 })
 Farming2:AddDropdown('CubeSelect', {
     Values = {'Common', 'Rare', 'Epic','Legendary'},
