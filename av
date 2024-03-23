@@ -80,7 +80,7 @@ end
 Farming2:AddDropdown('Zone', {
     World = {}
     for i,v in game:GetService("Workspace").Markers.WorldPets:GetChildren() do
-    Values = {v.Name},
+    Values = {[v]},
     Default = 'Pet Park', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
 
