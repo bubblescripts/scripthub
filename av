@@ -234,13 +234,6 @@ spawn(function()
         end
     end)
     end)
-    spawn(function()
-        Toggles.AutoMobv1:OnChanged(function()
-            while getgenv().AutoMobv1 and task.wait(0.1) do
-                AutoMobs()
-            end
-        end)
-        end)
 
 
 local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
