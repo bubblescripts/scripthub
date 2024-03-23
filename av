@@ -16,10 +16,11 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
   end
 
 
-function GetWorlds()
+function GetWorlds(name)
     World = {}
     for i,v in game:GetService("Workspace").Markers.WorldPets:GetChildren() do
         table.insert(World,v.Name)
+        name=v.Name
     end
 end
 
@@ -78,7 +79,7 @@ end
         end
 })
 Farming2:AddDropdown('Zone', {
-    Values = GetWorlds(),
+    Values = GetWorlds(name),
     Default = 'Pet Park', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
 
