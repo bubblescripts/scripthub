@@ -120,7 +120,7 @@ Farming2:AddDropdown('CubeSelect', {
     end
   })
 
-  Farming3:AddToggle('AutoMobv1', { -- Flag Name goes here
+  Farming:AddToggle('AutoMobv1', { -- Flag Name goes here
     Text = 'AutoMob [v1]', -- Toggle Text
     Default = false, -- Default value (true / false)
     Tooltip = 'Catching pets in map',
