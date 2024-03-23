@@ -14,13 +14,14 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
       local s = tostring(n/(10^d)):sub(1,5)
       return s.." "..tostring(T[math.floor(d/3)])
   end
-  World = {}
-  for i,v in game:GetService("Workspace").Markers.WorldPets:GetChildren() do
-      table.insert(World,v.Name)
-  
 
 
-
+function GetWorlds()
+    World = {}
+    for i,v in game:GetService("Workspace").Markers.WorldPets:GetChildren() do
+        table.insert(World,v.Name)
+    end
+end
 
   local gamename = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
   local repo = 'https://raw.githubusercontent.com/NecoWareHub/Hub/main/'
@@ -77,7 +78,7 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
         end
 })
 Farming2:AddDropdown('Zone', {
-    Values = World,
+    Values = GetWorlds(),
     Default = 'Pet Park', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
 
@@ -87,7 +88,6 @@ Farming2:AddDropdown('Zone', {
         getgenv().World = Value
             warn('[IW Supporter] Selected  :', Value)
         end
-    end
 })
 Farming2:AddDropdown('CubeSelect', {
     Values = {'Common', 'Rare', 'Epic','Legendary'},
