@@ -37,9 +37,6 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
       TabPadding = 5,
       MenuFadeTime = 0.5,
   })
-  for i,v in pairs(Window) do 
-      print(i,v)
-  end
   -- CALLBACK NOTE:
   -- Passing in callback functions via the initial element parameters (i.e. Callback = function(Value)...) works
   -- HOWEVER, using Toggles/Options.INDEX:OnChanged(function(Value) ... ) is the RECOMMENDED way to do this.
@@ -115,7 +112,7 @@ Farming2:AddDropdown('CubeSelect', {
 
     end
   })
-Farming:AddToggle('AutoMob', { -- Flag Name goes here
+--[[Farming:AddToggle('AutoMob', { -- Flag Name goes here
 Text = 'AutoMobs v1', -- Toggle Text
 Default = false, -- Default value (true / false)
 Tooltip = 'Catching pets in map',
@@ -124,7 +121,7 @@ getgenv().AutoMobsv1 = Value
 warn('[IW Supporter] Selected :', Value)
 
 end
-})
+})]]
 function AutoCatchbtw()
     if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
         while getgenv().AutoCatch and task.wait(3) do
