@@ -14,7 +14,10 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
       local s = tostring(n/(10^d)):sub(1,5)
       return s.." "..tostring(T[math.floor(d/3)])
   end
-
+  EnemiesWorld = {}
+  for i,v in game:GetService("Workspace").Markers.Enemies:GetChildren() do
+      table.insert(EnemiesWorld,v.Name)
+  end
 
 function GetWorlds(name)
     World = {}
@@ -84,17 +87,15 @@ Farming2:AddDropdown('MobMethod', {
     Default = 'All', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
 
-    Text = 'Select Catch Method',
-    Tooltip = 'Select Catch Method', -- Information shown when you hover over the textbox
+    Text = 'Select Mob Farm Method',
+    Tooltip = 'Select Mob Farm Method', -- Information shown when you hover over the textbox
     Callback = function(Value)
         getgenv().MobMethod = Value
             warn('[IW Supporter] Selected  :', Value)
         end
 })
---[[Farming2:AddDropdown('Zone', {
-    World = {}
-    for i,v in game:GetService("Workspace").Markers.WorldPets:GetChildren() do
-    Values = {[v]},
+Farming2:AddDropdown('EnemiesZone', {
+    Values = EnemiesWorld,
     Default = 'Pet Park', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
 
@@ -104,9 +105,7 @@ Farming2:AddDropdown('MobMethod', {
         getgenv().World = Value
             warn('[IW Supporter] Selected  :', Value)
         end
-    end
-end
-})]]
+})
 Farming2:AddDropdown('CubeSelect', {
     Values = {'Common', 'Rare', 'Epic','Legendary'},
     Default = 'Common', -- number index of the value / string
