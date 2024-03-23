@@ -120,7 +120,7 @@ Farming2:AddDropdown('CubeSelect', {
     end
   })
 
-  Farming:AddToggle('AutoMobv1', { -- Flag Name goes here
+--[[Farming:AddToggle('AutoMobv1', { -- Flag Name goes here
     Text = 'AutoMob [v1]', -- Toggle Text
     Default = false, -- Default value (true / false)
     Tooltip = 'Catching pets in map',
@@ -129,7 +129,7 @@ Farming2:AddDropdown('CubeSelect', {
 	warn('[IW Supporter] Selected :', Value)
 
     end
-  })
+  })]]
   --[[spawn(function()
     while task.wait() do
         EnemiesID = {}
@@ -173,7 +173,7 @@ end
 end
 
 
-function AutoMobv1()
+function AutoMobs()
     if getgenv().AutoMobv1 == true then
         while wait(0.1) do
             for i,v in game:GetService("Workspace").Markers.Enemies[getgenv().World]:FindFirstChild("Default"):GetChildren() do
@@ -222,7 +222,7 @@ spawn(function()
     spawn(function()
         Toggles.AutoMobv1:OnChanged(function()
             while getgenv().AutoMobv1 and task.wait(0.1) do
-                AutoMobv1()
+                AutoMobs()
             end
         end)
         end)
