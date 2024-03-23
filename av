@@ -91,6 +91,7 @@ Farming2:AddDropdown('Zone', {
             warn('[IW Supporter] Selected  :', Value)
         end
     end
+end
 })
 Farming2:AddDropdown('CubeSelect', {
     Values = {'Common', 'Rare', 'Epic','Legendary'},
