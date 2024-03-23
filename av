@@ -133,10 +133,28 @@ Tooltip = 'Make u god',
 Callback = function(Value)
 getgenv().GodMode = Value
 warn('[IW Supporter] Selected :', Value)
-
 end
 })
 
+Farming:AddToggle('AntiAfk', { -- Flag Name goes here
+Text = 'AntiAfk', -- Toggle Text
+Default = false, -- Default value (true / false)
+Tooltip = 'AntiAfk',
+Callback = function(Value)
+getgenv().AntiAfk = Value
+warn('[IW Supporter] Selected :', Value)
+end
+})
+function AntiAft()
+    game:service "Players".LocalPlayer.Idled:connect(
+    function()
+        local bb = game:service "VirtualUser"
+        bb:CaptureController()
+        bb:ClickButton2(Vector2.new())
+        wait(2)
+    end
+)
+end
 function GodMode()
     humanoid.MaxHealth = math.huge
 end
@@ -257,6 +275,14 @@ spawn(function()
         end
     end)
     end)
+
+    spawn(function()
+        Toggles.AntiAfk:OnChanged(function()
+            while getgenv().AntiAfk and task.wait(0.1) do
+                AntiAfk()
+            end
+        end)
+        end)
 
 
 local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
