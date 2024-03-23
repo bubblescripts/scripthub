@@ -113,13 +113,13 @@ end
 end
 
 
-spawn(function()
+--[[spawn(function()
     Toggles.AutoCatch:OnChanged(function()
         while getgenv().AutoCatch and task.wait(3) do
             CatchingPets()
         end
     end)
-end)
+end)--]]
 
 
 
