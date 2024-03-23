@@ -58,13 +58,17 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
   local Game = Information:AddLabel('Game : '..gamename,false)
   local Farming = Tabs.Main:AddLeftGroupbox('Main features : ')
 
-  Farming:AddDropdown('MyDropdown', {
-    Values = { 'This', 'is', 'a', 'dropdown' },
-    Default = 1, -- number index of the value / string
+  Farming:AddDropdown('FarmingMethod', {
+    Values = {'Rendered', 'All', 'Zone'},
+    Default = 'Rendered', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
 
-    Text = 'A dropdown',
+    Text = 'Select Catch Method',
     Tooltip = 'This is a tooltip', -- Information shown when you hover over the textbox
+    Callback = function(Value)
+        getgenv().FarmingMethod = Value
+            warn('[IW Supporter] Selected  :', Value)
+        end
 })
 
   
