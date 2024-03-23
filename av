@@ -14,8 +14,10 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
       local s = tostring(n/(10^d)):sub(1,5)
       return s.." "..tostring(T[math.floor(d/3)])
   end
-  
-
+  World = {}
+  for i,v in game:GetService("Workspace").Markers.WorldPets:GetChildren()
+    table.insert(World,v.Name)
+  end
 
 
 
@@ -78,7 +80,18 @@ if game.CoreGui:FindFirstChild("ScreenGui") then
             warn('[IW Supporter] Selected  :', Value)
         end
 })
+Farming2:AddDropdown('Zone', {
+    Values = World,
+    Default = 'Pet Park', -- number index of the value / string
+    Multi = false, -- true / false, allows multiple choices to be selected
 
+    Text = 'Select Zone [For Zone Method]',
+    Tooltip = 'Select Zone [For Zone Method]', -- Information shown when you hover over the textbox
+    Callback = function(Value)
+        getgenv().Zone = Value
+            warn('[IW Supporter] Selected  :', Value)
+        end
+})
 Farming2:AddDropdown('CubeSelect', {
     Values = {'Common', 'Rare', 'Epic','Legendary'},
     Default = 'Common', -- number index of the value / string
@@ -100,6 +113,16 @@ Farming2:AddDropdown('CubeSelect', {
 	Callback = function(Value)
 	getgenv().AutoCatch = Value
 	warn('[IW Supporter] Selected :', Value)
+
+    end
+  })
+Farming:AddToggle('AutoMob', { -- Flag Name goes here
+Text = 'AutoMobs v1', -- Toggle Text
+Default = false, -- Default value (true / false)
+Tooltip = 'Catching pets in map',
+Callback = function(Value)
+getgenv().AutoCatch = Value
+warn('[IW Supporter] Selected :', Value)
 
 end
 })
