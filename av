@@ -98,12 +98,12 @@ Farming2:AddDropdown('CubeSelect', {
     Default = true, -- Default value (true / false)
     Tooltip = 'Catching pets in map',
 	Callback = function(Value)
-		getgenv().AutoCatch = Value
-		warn('[IW Supporter] Selected :', Value)
-    if getgenv().AutoCatch == true then
+	getgenv().AutoCatch = Value
+	warn('[IW Supporter] Selected :', Value)
+    --[[if getgenv().AutoCatch == true then
         AutoCatchbtw()
         return AutoCatchbtw()
-    end
+    end]]
 end
 })
 function AutoCatchbtw()
