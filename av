@@ -97,9 +97,9 @@ Farming2:AddDropdown('MobMethod', {
 Farming2:AddDropdown('EnemiesZone', {
     Values = EnemiesWorld,
     Default = 'Pet Park', -- number index of the value / string
-    Multi = false, -- true / false, allows multiple choices to be selected
+    Multi = true, -- true / false, allows multiple choices to be selected
 
-    Text = 'Select Zone [For Zone Method]',
+    Text = 'Select Zone [For Enemies]',
     Tooltip = 'Select Zone [For Zone Method]', -- Information shown when you hover over the textbox
     Callback = function(Value)
         getgenv().World = Value
@@ -141,6 +141,11 @@ Farming2:AddDropdown('CubeSelect', {
 
     end
   })
+  EnemiesID = {}
+for i,v in game:GetService("Workspace").Markers.Enemies[getgenv().World].Deffault:GetChildren()
+    print(EnemiesId,v.Name)
+end
+
 function AutoCatchbtw()
     if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
         while getgenv().AutoCatch and task.wait(3) do
