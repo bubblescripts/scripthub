@@ -205,7 +205,7 @@ spawn(function()
                 end
         })]]
 
-        --[[Farming2:AddDropdown('PetZones', {
+        Farming2:AddDropdown('PetZones', {
             Values = PetsZones,
             Default = 'Pet Park', -- number index of the value / string
             Multi = false, -- true / false, allows multiple choices to be selected
@@ -216,8 +216,8 @@ spawn(function()
                 getgenv().PetsZones = Value
                     warn('[IW Supporter] Selected  :', Value)
                 end
-        })]]
---[[		function AutoCatchbtw()
+        })
+		function AutoCatchbtw()
 			if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
 				while getgenv().AutoCatch and task.wait(1) do
 					for _,v in game:GetService("Workspace").Rendered.Pets.World:GetChildren() do
@@ -237,25 +237,25 @@ spawn(function()
 			end	
 		end
 	end
-end]]
+end
 
 
 
---[[spawn(function()
+spawn(function()
     Toggles.AutoCatch:OnChanged(function()
 		while getgenv().AutoCatch == true and wait(0.1) do 
 			AutoCatchbtw()
         end
     end)
-    end)]]
+    end)
 
---[[    spawn(function()
+    spawn(function()
         Toggles.AntiAfk:OnChanged(function()
             while getgenv().AntiAfk do
                 AntiAfk()
             end
         end)
-        end)]]
+        end)
 
 
 local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
