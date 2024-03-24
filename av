@@ -84,7 +84,7 @@
 
 Farming2:AddDropdown('MobMethod', {
     Values = {'All', 'Zone'},
-    Default = 'All', -- number index of the value / string
+    Default = 'Zone', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
 
     Text = 'Select Mob Farm Method',
@@ -168,7 +168,7 @@ end
 function AutoMobv1()
   while wait(0.1) do
       for i,v in game:GetService("Workspace").Markers.Enemies[getgenv().World]:FindFirstChild("Default"):GetChildren() do
-          if v:IsA('Folder') and getgenv().AutoMobv1 == true then
+          if MobMethod == "Zone" and v:IsA('Folder') and getgenv().AutoMobv1 == true then
            local args = {
               [1] = "TargetEnemy",
               [2] = v.Name
