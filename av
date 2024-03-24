@@ -219,7 +219,6 @@ end
         end
 
 function GetPets()
-    spawn(function()
     while getgenv().AutoCatch == true and task.wait(3) do 
     for i,v in game:GetService("Workspace").Markers.WorldPets[getgenv().PetsZones]:FindFirstChild("Default"):GetChildren() do
     table.insert(Pets,v.Name)
@@ -235,7 +234,7 @@ end
 end
 end
 
-spawn(function()
+--[[spawn(function()
     Toggles.AutoCatch:OnChanged(function()
 		while getgenv().AutoCatch == true and wait(0.1) do 
 			if getgenv().FarmingMethod == "Zone" and getgenv().AutoCatch == true then
@@ -246,7 +245,7 @@ spawn(function()
         end
         end)
     end)
-    end)
+    end)]]
 
     spawn(function()
         Toggles.AntiAfk:OnChanged(function()
