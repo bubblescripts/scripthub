@@ -151,7 +151,7 @@ getgenv().AntiAfk = Value
 warn('[IW Supporter] Selected :', Value)
 end
 })
---[[function AntiAft()
+function AntiAft()
     game:service "Players".LocalPlayer.Idled:connect(
     function()
         local bb = game:service "VirtualUser"
@@ -160,14 +160,13 @@ end
         wait(2)
     end
 )
-end]]
+end
 function GodMode()
     humanoid.MaxHealth = math.huge
 end
---[[function AutoMobv1()
-  while wait(0.1) do
+function AutoMobv1()
+    if getgenv().MobMethod == "Zone" and v:IsA('Folder') and getgenv().AutoMobv1 == true then
       for i,v in game:GetService("Workspace").Markers.Enemies[getgenv().World]:FindFirstChild("Default"):GetChildren() do
-          if getgenv().MobMethod == "Zone" and v:IsA('Folder') and getgenv().AutoMobv1 == true then
            local args = {
               [1] = "TargetEnemy",
               [2] = v.Name
@@ -176,21 +175,13 @@ end
       end
   end
 end
-end
-spawn(function()
-  Toggles.AutoMobv1:OnChanged(function()
-      while getgenv().AutoMobv1 and task.wait(0.1) do
-          AutoMobv1()
-      end
-  end)
-  end)
   spawn(function()
     Toggles.GodMode:OnChanged(function()
         while getgenv().GodMode and task.wait(0.1) do
             GodMode()
         end
     end)
-    end)]]
+    end)
         --[[Farming2:AddDropdown('EnemiesZone', {
             Values = EnemiesWorld,
             Default = nil, -- number index of the value / string
