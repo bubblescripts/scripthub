@@ -284,9 +284,9 @@ spawn(function()
 
         spawn(function()
             Toggles.AutoFish:OnChanged(function()
-                while getgenv().AutoFish == true wait(getgenv().AFCooldown or 3.5)do
+                while getgenv().AutoFish == true do
+                wait(getgenv().AFCooldown or 3.5)
                     AutoFish()
-                    repeat AutoFish()
                 end
             end)
             end)
