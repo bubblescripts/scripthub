@@ -205,7 +205,7 @@ spawn(function()
                 end
         })]]
 
-        Farming2:AddDropdown('PetZones', {
+        --[[Farming2:AddDropdown('PetZones', {
             Values = PetsZones,
             Default = 'Pet Park', -- number index of the value / string
             Multi = false, -- true / false, allows multiple choices to be selected
@@ -216,7 +216,7 @@ spawn(function()
                 getgenv().PetsZones = Value
                     warn('[IW Supporter] Selected  :', Value)
                 end
-        })
+        })]]
 --[[		function AutoCatchbtw()
 			if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
 				while getgenv().AutoCatch and task.wait(1) do
