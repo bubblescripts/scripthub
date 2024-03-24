@@ -217,7 +217,7 @@ end
             end	
         end
         end
-        CatchedPet = Interactions:AddLabel('Catched: nothing')
+        CatchedPet = Interactions:AddLabel('Catched: NONONNOONON')
 function GetPets() 
     for i,v in game:GetService("Workspace").Markers.WorldPets[getgenv().PetsZones]:FindFirstChild("Default"):GetChildren() do
     table.insert(Pets,v.Name)
