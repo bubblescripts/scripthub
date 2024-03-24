@@ -204,7 +204,7 @@ spawn(function()
                 end
         })]]
 
-        Farming2:AddDropdown('PetZones', {
+       --[[ Farming2:AddDropdown('PetZones', {
             Values = PetsZones,
             Default = 'Pet Park', -- number index of the value / string
             Multi = false, -- true / false, allows multiple choices to be selected
@@ -236,7 +236,7 @@ spawn(function()
 			end	
 		end
 	end
-end
+end]]
 
 function GetPets()
     while getgenv().AutoCatch == true and task.wait(3) do 
