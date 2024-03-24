@@ -69,7 +69,7 @@
   local Farming = Tabs.Main:AddLeftGroupbox('Farming features : ')
   local Farming2 = Tabs.Main:AddRightGroupbox('Selection features : ')
   Farming2:AddDropdown('FarmingMethod', {
-    Values = {'Rendered', 'All', 'Zone'},
+    Values = {'Rendered', 'Zone'},
     Default = 'Rendered', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
 
@@ -83,11 +83,11 @@
 
 
 Farming2:AddDropdown('MobMethod', {
-    Values = {'All', 'Zone'},
+    Values = {'All','Zone'},
     Default = 'Zone', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
 
-    Text = 'Select Mob Farm Method',
+    Text = 'Select Mob Farm Method!',
     Tooltip = 'Select Mob Farm Method', -- Information shown when you hover over the textbox
     Callback = function(Value)
         getgenv().MobMethod = Value
