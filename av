@@ -227,7 +227,7 @@ end
 			end	
 		end
 	end
-end]]
+end
 
 function GetPets()
     while getgenv().AutoCatch == true and task.wait(3) do 
