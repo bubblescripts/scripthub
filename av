@@ -168,7 +168,7 @@ Farming2:AddDropdown('PetZones', {
         end
     })
 
-    Cooldowns:AddSlider('AutoBoss', {
+--[[    Cooldowns:AddSlider('AutoBoss', {
         Text = 'AutoBoss CD ',
         Default = 0,
         Min = 0,
@@ -181,7 +181,7 @@ Farming2:AddDropdown('PetZones', {
             getgenv().AutoBoss = Value
             print('[IW Supporter] Selected :', Value)
         end
-    })
+    })]]
 
     Cooldowns:AddSlider('ACCooldown', {
         Text = 'AutoCatch Cooldown ',
@@ -315,14 +315,14 @@ Farming2:AddDropdown('PetZones', {
                 end
             end)
             end)
-            spawn(function()
+ --[[           spawn(function()
                 Toggles.AutoMobv1:OnChanged(function()
                     while getgenv().AutoMobv1 == true and wait(0.1)do
                     if getgenv().MobMethod == "Zone" then
                         AutoMobv1()
                     end
                 end)
-                end)
+                end)]]
     
 
 
