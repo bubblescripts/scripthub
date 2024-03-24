@@ -111,17 +111,15 @@ Farming2:AddDropdown('CubeSelect', {
 })
 
 
-  Farming:AddToggle('AutoCatch', { -- Flag Name goes here
-    Text = 'AutoCatch', -- Toggle Text
-    Default = false, -- Default value (true / false)
-    Tooltip = 'Catching pets in map',
-	Callback = function(Value)
-	getgenv().AutoCatch = Value
-	warn('[IW Supporter] Selected :', Value)
-
-    end
-  })
-
+	Farming:AddToggle('AutoCatch', { -- Flag Name goes here
+		Text = 'AutoCatch', -- Toggle Text
+		Default = false, -- Default value (true / false)
+		Tooltip = 'Catching pets in map',
+		Callback = function(Value)
+			getgenv().AutoCatch = Value
+				warn('[IW Supporter] Selected :', Value)
+			end
+	})
   Farming:AddToggle('AutoMobv1', { -- Flag Name goes here
   Text = 'AutoMob [v1]', -- Toggle Text
   Default = false, -- Default value (true / false)
@@ -192,7 +190,7 @@ spawn(function()
         end
     end)
     end)]]
-        Farming2:AddDropdown('EnemiesZone', {
+        --[[Farming2:AddDropdown('EnemiesZone', {
             Values = EnemiesWorld,
             Default = nil, -- number index of the value / string
             Multi = false, -- true / false, allows multiple choices to be selected
@@ -203,13 +201,13 @@ spawn(function()
                 getgenv().World = Value
                     warn('[IW Supporter] Selected  :', Value)
                 end
-        })
+        })]]
 
         Farming2:AddDropdown('PetZones', {
             Values = PetsZones,
             Default = 'Pet Park', -- number index of the value / string
             Multi = false, -- true / false, allows multiple choices to be selected
-        
+    
             Text = 'Select Zone [For Catching Pets]',
             Tooltip = 'Select Zone [For Catching Pets]', -- Information shown when you hover over the textbox
             Callback = function(Value)
@@ -239,7 +237,21 @@ spawn(function()
 	end
 end
 
-
+function GetPets()
+    while getgenv().AutoCatch == true and task.wait(3) do 
+    for i,v in game:GetService("Workspace").Markers.WorldPets[getgenv().PetsZones]:FindFirstChild("Default"):GetChildren() do
+    table.insert(Pets,v.Name)
+    if v.Name ~= "SourceFolder" then
+        if getgenv().FarmingMethod == "Zone" and getgenv().AutoCatch == true then
+        print(v.Name)
+            game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer("PetInteraction",v.Name)
+            wait(2)
+            game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Function:InvokeServer("CapturePet",v.Name,getgenv().CubeSelect)
+        end
+    end
+end
+end
+end
 
 spawn(function()
     Toggles.AutoCatch:OnChanged(function()
