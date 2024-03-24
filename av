@@ -74,7 +74,6 @@
     local Interactions = Tabs.Main:AddLeftGroupbox('Other Features : ')
     local Cooldowns = Tabs.Main:AddLeftGroupbox('Cooldowns : ')
 
-    Information2:AddLabel('Execution time:'..timestamp)
     Farming2:AddDropdown('FarmingMethod', {
         Values = {'Rendered', 'Zone'},
         Default = 'Rendered', -- number index of the value / string
