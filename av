@@ -125,7 +125,20 @@ Callback = function(Value)
         warn('[IW Supporter] Selected :', Value)
     end
 })
+Farming:AddSlider('AutoFish', {
+    Text = 'AutoFish Cooldown ',
+    Default = 0,
+    Min = 0,
+    Max = 10,
+    Rounding = 1,
+	Suffix = " s.",
+    Compact = false,
 
+    Callback = function(Value)
+        getgenv().AFCooldown = Value
+        print('[IW Supporter] Selected :', Value)
+    end
+})
 	Farming:AddToggle('AutoCatch', { -- Flag Name goes here
 		Text = 'AutoCatch', -- Toggle Text
 		Default = false, -- Default value (true / false)
@@ -271,7 +284,7 @@ spawn(function()
 
         spawn(function()
             Toggles.AutoFish:OnChanged(function()
-                while getgenv().AutoFish == true do
+                while getgenv().AutoFish == true wait(getgenv().AFCooldown or 3.5)do
                     AutoFish()
                     repeat AutoFish()
                 end
