@@ -299,10 +299,10 @@
 
     spawn(function()
         Toggles.AutoCatch:OnChanged(function()
-            while getgenv().AutoCatch == true and wait(getgenv().ACCooldown or 5)do 
-                if getgenv().FarmingMethod == "Zone" and getgenv().AutoCatch == true then
+            while getgenv().AutoCatch == true and wait(getgenv().ACCooldown or 5) do 
+                if getgenv().FarmingMethod == "Zone" then
                     GetPets()
-                elseif getgenv().FarmingMethod == "Rendered" and getgenv().AutoCatch == true then
+                elseif getgenv().FarmingMethod == "Rendered" then
                     AutoCatchbtw()
                 end
             end
@@ -316,6 +316,16 @@
                 end
             end)
             end)
+            spawn(function()
+                Toggles.AutoMobv1:OnChanged(function()
+                    while getgenv().AutoMobv1 == true and wait(0.1)do
+                    if getgenv().MobMethod == "Zone" then
+                        AutoMobv1()
+                    end
+                end)
+                end)
+    
+
 
             spawn(function()
                 Toggles.AutoFish:OnChanged(function()
