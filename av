@@ -236,7 +236,6 @@ spawn(function()
                                     if getgenv().FarmingMethod == 'Zone' and getgenv().AutoCatch == true then
                                         while getgenv().AutoCatch and wait(3) do
                                             for i,v in game:GetService("Workspace").Markers.WorldPets[getgenv().PetsZones]:FindFirstChild("Default"):GetChildren() do
-                                                if getgenv().FarmingMethod == "Zone" and v:IsA('Folder') and getgenv().AutoCatch == true then
                                                     while getgenv().AutoCatch and wait(3) do
                                                         local args1 = {
                                                         [1] = "PetInteraction",
