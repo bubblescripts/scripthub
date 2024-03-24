@@ -77,7 +77,7 @@
     Tooltip = 'Select Catch Method', -- Information shown when you hover over the textbox
     Callback = function(Value)
         getgenv().FarmingMethod = Value
-            warn('[IW Supporter] Selected  :', Value)
+            warn('[IW Supporter] Selected  :', Value)   
         end
 })
 
