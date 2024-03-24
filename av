@@ -225,12 +225,12 @@ function GetPets()
     if v.Name ~= "SourceFolder" then
             while getgenv().loaded and task.wait() do
                 CatchedPet:SetText("Catched:"..v.Name or "nothing",false)
-            end
             game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer("PetInteraction",v.Name)
             wait(2)
             game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Function:InvokeServer("CapturePet",v.Name,getgenv().CubeSelect)
         end
     end
+end
 end
 end
 
