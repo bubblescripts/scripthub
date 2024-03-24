@@ -151,7 +151,7 @@ getgenv().AntiAfk = Value
 warn('[IW Supporter] Selected :', Value)
 end
 })
-function AntiAft()
+--[[function AntiAft()
     game:service "Players".LocalPlayer.Idled:connect(
     function()
         local bb = game:service "VirtualUser"
@@ -160,7 +160,7 @@ function AntiAft()
         wait(2)
     end
 )
-end
+end]]
 function GodMode()
     humanoid.MaxHealth = math.huge
 end
