@@ -191,8 +191,8 @@ spawn(function()
             GodMode()
         end
     end)
-    end)
---[[        Farming2:AddDropdown('EnemiesZone', {
+    end)]]
+        Farming2:AddDropdown('EnemiesZone', {
             Values = EnemiesWorld,
             Default = 'Pet Park', -- number index of the value / string
             Multi = false, -- true / false, allows multiple choices to be selected
@@ -203,7 +203,7 @@ spawn(function()
                 getgenv().World = Value
                     warn('[IW Supporter] Selected  :', Value)
                 end
-        })]]
+        })
 
         Farming2:AddDropdown('PetZones', {
             Values = PetsZones,
