@@ -203,6 +203,10 @@
     end
     })
 
+
+
+
+    
     Interactions:AddToggle('AntiAfk', { -- Flag Name goes here
     Text = 'AntiAfk', -- Toggle Text
     Default = false, -- Default value (true / false)
@@ -228,11 +232,8 @@
     function AutoMobv1()
         for i,v in game:GetService("Workspace").Markers.Enemies[getgenv().EnemiesWorld or "Pat Park"]:FindFirstChild("Default"):GetChildren() do
             if v:IsA('Folder') and getgenv().AutoMobv1 == true and wait(0.1) then
-            local args = {
-                [1] = "TargetEnemy",
-                [2] = v.Name
-            }
-        game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer(unpack(args))
+                print(v.Name)            
+                    game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer("TargetEnemy",v.Name)
         end
     end
     end
