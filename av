@@ -69,7 +69,7 @@
   local Game = Information:AddLabel('Game : '..gamename,false)
   local Farming = Tabs.Main:AddLeftGroupbox('Farming features : ')
   local Farming2 = Tabs.Main:AddRightGroupbox('Selection features : ')
-  local Interactions = Tabs.Main:AddLeftGroupbox('Interactios info : ')
+  local Interactions = Tabs.Main:AddLeftGroupbox('Other Features : ')
   Farming2:AddDropdown('FarmingMethod', {
     Values = {'Rendered', 'Zone'},
     Default = 'Rendered', -- number index of the value / string
@@ -98,6 +98,10 @@ Farming2:AddDropdown('MobMethod', {
 })
 
 
+function AutoFish()
+    game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer("StartCastFishing")
+end
+
 
 Farming2:AddDropdown('CubeSelect', {
     Values = {'Common', 'Rare', 'Epic','Legendary'},
@@ -112,6 +116,15 @@ Farming2:AddDropdown('CubeSelect', {
         end
 })
 
+Farming:AddToggle('AutoFish', { -- Flag Name goes here
+Text = 'AutoFish', -- Toggle Text
+Default = false, -- Default value (true / false)
+Tooltip = 'You need to manual go to the river',
+Callback = function(Value)
+    getgenv().AutoFish = Value
+        warn('[IW Supporter] Selected :', Value)
+    end
+})
 
 	Farming:AddToggle('AutoCatch', { -- Flag Name goes here
 		Text = 'AutoCatch', -- Toggle Text
@@ -133,7 +146,7 @@ Farming2:AddDropdown('CubeSelect', {
   end
 })
 
-Farming:AddToggle('GodMode', { -- Flag Name goes here
+Interactions:AddToggle('GodMode', { -- Flag Name goes here
 Text = 'GodMode', -- Toggle Text
 Default = false, -- Default value (true / false)
 Tooltip = 'Make u god',
@@ -143,7 +156,7 @@ warn('[IW Supporter] Selected :', Value)
 end
 })
 
-Farming:AddToggle('AntiAfk', { -- Flag Name goes here
+Interactions:AddToggle('AntiAfk', { -- Flag Name goes here
 Text = 'AntiAfk', -- Toggle Text
 Default = false, -- Default value (true / false)
 Tooltip = 'AntiAfk',
@@ -255,6 +268,14 @@ spawn(function()
             end
         end)
         end)
+
+        spawn(function()
+            Toggles.AutoFish:OnChanged(function()
+                while getgenv().AutoFish == true do
+                    AutoFish()
+                end
+            end)
+            end)
 
 
 local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
