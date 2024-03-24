@@ -63,27 +63,6 @@
   local Game = Information:AddLabel('Game : '..gamename,false)
   local Farming = Tabs.Main:AddLeftGroupbox('Farming features : ')
   local Farming2 = Tabs.Main:AddRightGroupbox('Selection features : ')
-
-  function AutoCatchbtw()
-    if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
-        while getgenv().AutoCatch and task.wait(1) do
-            for _,v in game:GetService("Workspace").Rendered.Pets.World:GetChildren() do
-            local args1 = {
-            [1] = "PetInteraction",
-            [2] = v.Name
-        }
-        game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer(unpack(args1))
-        local args = {
-            [1] = "CapturePet",
-            [2] = v.Name,
-            [3] = getgenv().Cube
-        }
-        game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Function:InvokeServer(unpack(args))
-    end	
-end
-end
-end
-
   Farming2:AddDropdown('FarmingMethod', {
     Values = {'Rendered', 'All', 'Zone'},
     Default = 'Rendered', -- number index of the value / string
@@ -139,7 +118,7 @@ Farming2:AddDropdown('CubeSelect', {
   Farming:AddToggle('AutoMobv1', { -- Flag Name goes here
   Text = 'AutoMob [v1]', -- Toggle Text
   Default = false, -- Default value (true / false)
-  Tooltip = 'Catching pets in map',
+  Tooltip = 'Killing mobs',
   Callback = function(Value)
   getgenv().AutoMobv1 = Value
   warn('[IW Supporter] Selected :', Value)
@@ -206,15 +185,6 @@ spawn(function()
         end
     end)
     end)
-  --[[spawn(function()
-    while task.wait() do
-        EnemiesID = {}
-            for i,v in game:GetService("Workspace").Markers.Enemies[getgenv().World].Deffault:GetChildren()
-                print(EnemiesId,v.Name)
-            end
-                task.wait(.25)
-            end
-        end)]]
         Farming2:AddDropdown('EnemiesZone', {
             Values = EnemiesWorld,
             Default = 'Pet Park', -- number index of the value / string
@@ -227,47 +197,27 @@ spawn(function()
                     warn('[IW Supporter] Selected  :', Value)
                 end
         })
-
-
-
---[[function AutoMobv1()
-    if getgenv().AutoMobv1 == true then
-        while wait(0.1) do
-            for i,v in game:GetService("Workspace").Markers.Enemies[getgenv().World]:FindFirstChild("Default"):GetChildren() do
-                if v:IsA('Folder') then
-                 local args = {
-                    [1] = "TargetEnemy",
-                    [2] = v.Name
-                }
-            game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer(unpack(args))
-            end
-        end
-    end
-    end
-    end    ]]
-
---[[function CatchingPets()
-if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
-    local args = {
-        [1] = "CapturePet",
-        [2] = RenderedPets,
-        [3] = getgenv().Cube
-     }
-     game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Function:InvokeServer(unpack(args))
+		function AutoCatchbtw()
+			if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
+				while getgenv().AutoCatch and task.wait(3) do
+					for _,v in game:GetService("Workspace").Rendered.Pets.World:GetChildren() do
+						table.insert(RenderedPets,v.Name)
+					local args1 = {
+					[1] = "PetInteraction",
+					[2] = v.Name
+				}
+				game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer(unpack(args1))
+				local args = {
+					[1] = "CapturePet",
+					[2] = v.Name,
+					[3] = getgenv().Cube
+				}
+				game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Function:InvokeServer(unpack(args))
+			end	
+		end
+	end
 end
-else
-    print('bruh')
-end
-end--]]
 
-
---[[spawn(function()
-    Toggles.AutoCatch:OnChanged(function()
-        while getgenv().AutoCatch and task.wait(3) do
-            CatchingPets()
-        end
-    end)
-end)--]]
 
 
 spawn(function()
