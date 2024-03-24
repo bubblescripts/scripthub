@@ -83,7 +83,7 @@
 })
 
 
---[[Farming2:AddDropdown('MobMethod', {
+Farming2:AddDropdown('MobMethod', {
     Values = {'All','Zone'},
     Default = 'Zone', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
@@ -164,7 +164,7 @@ end
 function GodMode()
     humanoid.MaxHealth = math.huge
 end
-function AutoMobv1()
+--[[function AutoMobv1()
   while wait(0.1) do
       for i,v in game:GetService("Workspace").Markers.Enemies[getgenv().World]:FindFirstChild("Default"):GetChildren() do
           if getgenv().MobMethod == "Zone" and v:IsA('Folder') and getgenv().AutoMobv1 == true then
@@ -254,7 +254,7 @@ end
 end
 end
 
-spawn(function()
+--[[spawn(function()
     Toggles.AutoCatch:OnChanged(function()
 		while getgenv().AutoCatch == true and wait(0.1) do 
 			AutoCatchbtw()
@@ -268,7 +268,7 @@ spawn(function()
                 AntiAfk()
             end
         end)
-        end)
+        end)--]]
 
 
 local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
