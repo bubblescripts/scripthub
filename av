@@ -238,7 +238,7 @@ end
 
 spawn(function()
     Toggles.AutoCatch:OnChanged(function()
-		while getgenv().AutoCatch == true and wait(1) do 
+		while getgenv().AutoCatch == true do 
 			if getgenv().FarmingMethod == "Zone" and getgenv().AutoCatch == true then
                 GetPets()
             elseif getgenv().FarmingMethod == "Rendered" and getgenv().AutoCatch == true then
