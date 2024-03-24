@@ -217,15 +217,15 @@ end
             end	
         end
         end
-CatchedPet = Interactions:AddLabel('Catched: NONONNOONON')
+CatchedPet = Interactions:AddLabel('Catched: ❎')
 function GetPets() 
     for i,v in game:GetService("Workspace").Markers.WorldPets[getgenv().PetsZones]:FindFirstChild("Default"):GetChildren() do
         table.insert(Pets,v.Name)
         if v.Name ~= 'SourceFolder' then
             spawn(function()
                 while getgenv().loaded and task.wait() do
-                    CatchedPet:SetText("Catched:"..v.Name,false)
-                    while getgenv().AutoCatch == true and task.wait(3) do 
+                    CatchedPet:SetText("Catched: "..v.Name,false)
+                    while getgenv().AutoCatch == true and task.wait(10) do 
                         game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer("PetInteraction",v.Name)
                         wait(2)
                         game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Function:InvokeServer("CapturePet",v.Name,getgenv().CubeSelect)
@@ -238,7 +238,7 @@ end
 
 spawn(function()
     Toggles.AutoCatch:OnChanged(function()
-		while getgenv().AutoCatch == true and wait(3) do 
+		while getgenv().AutoCatch == true and wait(1) do 
 			if getgenv().FarmingMethod == "Zone" and getgenv().AutoCatch == true then
                 GetPets()
             elseif getgenv().FarmingMethod == "Rendered" and getgenv().AutoCatch == true then
