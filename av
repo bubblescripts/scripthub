@@ -217,21 +217,21 @@ end
             end	
         end
         end
-CatchedPet = Interactions:AddLabel('Catched: nononono')
+--CatchedPet = Interactions:AddLabel('Catched: nononono')
 function GetPets() 
     for i,v in game:GetService("Workspace").Markers.WorldPets[getgenv().PetsZones]:FindFirstChild("Default"):GetChildren() do
         table.insert(Pets,v.Name)
         if v.Name ~= 'SourceFolder' then
-            spawn(function()
-                while getgenv().loaded and task.wait() do
-                    CatchedPet:SetText("Catched: "..Pets,false)
-                    while getgenv().AutoCatch == true and task.wait(10) do 
+            --spawn(function()
+                --while getgenv().loaded and task.wait(10) do
+                    --CatchedPet:SetText("Catched: "..Pets,false)
+                    while getgenv().AutoCatch == true and task.wait(5) do 
                         game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer("PetInteraction",v.Name)
                         wait(2)
                         game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Function:InvokeServer("CapturePet",v.Name,getgenv().CubeSelect)
                     end
-                end
-            end)
+                --end
+            --end)
         end
     end
 end
@@ -250,7 +250,7 @@ spawn(function()
 
     spawn(function()
         Toggles.AntiAfk:OnChanged(function()
-            while getgenv().AntiAfk do
+            while getgenv().AntiAfk == true do
                 AntiAfk()
             end
         end)
