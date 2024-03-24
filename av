@@ -217,14 +217,7 @@ end
             end	
         end
         end
-spawn(function()
-while getgenv().loaded and task.wait(.25) do
-if getgenv().AutoCatch == true then
-    AutoCatching = Interactions:AddLabel('AutoCatching : ✅')
-    CatchedPet = Interactions:AddLabel('Catched: nothing')
-end
-end
-end)
+        CatchedPet = Interactions:AddLabel('Catched: nothing')
 function GetPets() 
     for i,v in game:GetService("Workspace").Markers.WorldPets[getgenv().PetsZones]:FindFirstChild("Default"):GetChildren() do
     table.insert(Pets,v.Name)
