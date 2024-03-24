@@ -63,6 +63,27 @@
   local Game = Information:AddLabel('Game : '..gamename,false)
   local Farming = Tabs.Main:AddLeftGroupbox('Farming features : ')
   local Farming2 = Tabs.Main:AddRightGroupbox('Selection features : ')
+
+  function AutoCatchbtw()
+    if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
+        while getgenv().AutoCatch and task.wait(1) do
+            for _,v in game:GetService("Workspace").Rendered.Pets.World:GetChildren() do
+            local args1 = {
+            [1] = "PetInteraction",
+            [2] = v.Name
+        }
+        game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer(unpack(args1))
+        local args = {
+            [1] = "CapturePet",
+            [2] = v.Name,
+            [3] = getgenv().Cube
+        }
+        game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Function:InvokeServer(unpack(args))
+    end	
+end
+end
+end
+
   Farming2:AddDropdown('FarmingMethod', {
     Values = {'Rendered', 'All', 'Zone'},
     Default = 'Rendered', -- number index of the value / string
@@ -206,25 +227,7 @@ spawn(function()
                     warn('[IW Supporter] Selected  :', Value)
                 end
         })
-		function AutoCatchbtw()
-			if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
-				while getgenv().AutoCatch and task.wait(1) do
-					for _,v in game:GetService("Workspace").Rendered.Pets.World:GetChildren() do
-					local args1 = {
-					[1] = "PetInteraction",
-					[2] = v.Name
-				}
-				game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer(unpack(args1))
-				local args = {
-					[1] = "CapturePet",
-					[2] = v.Name,
-					[3] = getgenv().Cube
-				}
-				game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Function:InvokeServer(unpack(args))
-			end	
-		end
-	end
-end
+
 
 
 --[[function AutoMobv1()
