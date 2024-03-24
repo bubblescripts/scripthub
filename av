@@ -223,14 +223,12 @@ function GetPets()
     table.insert(Pets,v.Name)
     while getgenv().AutoCatch == true and task.wait(3) do 
     if v.Name ~= "SourceFolder" then
-            while getgenv().loaded and task.wait() do
-                CatchedPet:SetText("Catched:"..v.Name or "nothing",false)
+            CatchedPet:SetText("Catched:"..v.Name,false)
             game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer("PetInteraction",v.Name)
             wait(2)
             game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Function:InvokeServer("CapturePet",v.Name,getgenv().CubeSelect)
         end
     end
-end
 end
 end
 
