@@ -19,6 +19,7 @@
       table.insert(EnemiesWorld,v.Name)
   end
 
+  Pets = {}
   PetsZones = {}
   for i,v in game:GetService("Workspace").Markers.WorldPets:GetChildren() do
       table.insert(PetsZones,v.Name)
