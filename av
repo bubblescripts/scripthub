@@ -225,14 +225,15 @@ spawn(function()
 					local args1 = {
 					[1] = "PetInteraction",
 					[2] = v.Name
-				}
-				game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer(unpack(args1))
+
 				local args = {
 					[1] = "CapturePet",
 					[2] = v.Name,
 					[3] = getgenv().Cube
 				}
 				game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Function:InvokeServer(unpack(args))
+            }
+            game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer(unpack(args1))
 			end	
 		end
 	end
