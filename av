@@ -217,7 +217,7 @@ spawn(function()
                     warn('[IW Supporter] Selected  :', Value)
                 end
         })
-		function AutoCatchbtw()
+--[[		function AutoCatchbtw()
 			if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
 				while getgenv().AutoCatch and task.wait(1) do
 					for _,v in game:GetService("Workspace").Rendered.Pets.World:GetChildren() do
@@ -237,7 +237,7 @@ spawn(function()
 			end	
 		end
 	end
-end
+end]]
 
 
 
