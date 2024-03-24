@@ -245,10 +245,10 @@ end
 end
 end
 
---[[spawn(function()
+spawn(function()
     Toggles.AutoCatch:OnChanged(function()
 		while getgenv().AutoCatch == true and wait(0.1) do 
-			AutoCatchbtw()
+			AutoCatchbtw() or GetPets()
         end
     end)
     end)
