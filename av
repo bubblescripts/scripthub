@@ -19,6 +19,11 @@
       table.insert(EnemiesWorld,v.Name)
   end
 
+  PetsZones = {}
+  for i,v in game:GetService("Workspace").Markers.WorldPets:GetChildren() do
+      table.insert(PetsZones,v.Name)
+  end
+
 
   local gamename = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
   local repo = 'https://raw.githubusercontent.com/NecoWareHub/Hub/main/'
@@ -89,6 +94,8 @@ Farming2:AddDropdown('MobMethod', {
             warn('[IW Supporter] Selected  :', Value)
         end
 })
+
+
 
 Farming2:AddDropdown('CubeSelect', {
     Values = {'Common', 'Rare', 'Epic','Legendary'},
@@ -194,6 +201,19 @@ spawn(function()
             Tooltip = 'Select Zone [For Zone Method]', -- Information shown when you hover over the textbox
             Callback = function(Value)
                 getgenv().World = Value
+                    warn('[IW Supporter] Selected  :', Value)
+                end
+        })
+
+        Farming2:AddDropdown('PetZones', {
+            Values = PetsZones,
+            Default = 'Pet Park', -- number index of the value / string
+            Multi = false, -- true / false, allows multiple choices to be selected
+        
+            Text = 'Select Zone [For Catching Pets]',
+            Tooltip = 'Select Zone [For Catching Pets]', -- Information shown when you hover over the textbox
+            Callback = function(Value)
+                getgenv().PetsZones = Value
                     warn('[IW Supporter] Selected  :', Value)
                 end
         })
