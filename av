@@ -210,7 +210,6 @@ spawn(function()
 			if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
 				while getgenv().AutoCatch and task.wait(1) do
 					for _,v in game:GetService("Workspace").Rendered.Pets.World:GetChildren() do
-						table.insert(RenderedPets,v.Name)
 					local args1 = {
 					[1] = "PetInteraction",
 					[2] = v.Name
@@ -270,8 +269,8 @@ end)--]]
 
 spawn(function()
     Toggles.AutoCatch:OnChanged(function()
-        while getgenv().AutoCatch and task.wait(0.1) do
-            AutoCatchbtw()
+		while getgenv().AutoCatch == true and task.wait(0.1) do 
+			AutoCatchbtw()
 			return AutoCatchbtw()
         end
     end)
