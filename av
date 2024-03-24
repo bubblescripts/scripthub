@@ -125,7 +125,7 @@ Callback = function(Value)
         warn('[IW Supporter] Selected :', Value)
     end
 })
-Farming:AddSlider('AutoFish', {
+Farming:AddSlider('AutoFishCD', {
     Text = 'AutoFish Cooldown ',
     Default = 0,
     Min = 0,
