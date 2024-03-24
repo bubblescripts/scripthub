@@ -82,7 +82,7 @@
 })
 
 
-Farming2:AddDropdown('MobMethod', {
+--[[Farming2:AddDropdown('MobMethod', {
     Values = {'All','Zone'},
     Default = 'Zone', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
