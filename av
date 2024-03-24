@@ -83,7 +83,7 @@
 
 
 Farming2:AddDropdown('MobMethod', {
-    Values = {'All','Zone'},
+    Values = {'Zone'},
     Default = 'Zone', -- number index of the value / string
     Multi = false, -- true / false, allows multiple choices to be selected
 
@@ -219,7 +219,7 @@ spawn(function()
         })
 		function AutoCatchbtw()
 			if getgenv().FarmingMethod == 'Rendered' and getgenv().AutoCatch == true then
-				while getgenv().AutoCatch and task.wait(1) do
+				while getgenv().AutoCatch and wait(3) do
 					for _,v in game:GetService("Workspace").Rendered.Pets.World:GetChildren() do
 						table.insert(RenderedPets,v.Name)
 					local args1 = {
