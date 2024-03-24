@@ -221,14 +221,11 @@ end
 function GetPets() 
     for i,v in game:GetService("Workspace").Markers.WorldPets[getgenv().PetsZones]:FindFirstChild("Default"):GetChildren() do
     table.insert(Pets,v.Name)
-    spawn(function()
-        while getgenv().loaded and task.wait() do
-            CatchedPet:SetText("Catched:"..v.Name or "nothing",false)
-        end
-    end)
     while getgenv().AutoCatch == true and task.wait(3) do 
     if v.Name ~= "SourceFolder" then
-        print(v.Name)
+        spawn(function()
+            while getgenv().loaded and task.wait() do
+                CatchedPet:SetText("Catched:"..v.Name or "nothing",false)
             game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer("PetInteraction",v.Name)
             wait(2)
             game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Function:InvokeServer("CapturePet",v.Name,getgenv().CubeSelect)
@@ -236,6 +233,8 @@ function GetPets()
     end
 end
 end
+end
+end)
 
 spawn(function()
     Toggles.AutoCatch:OnChanged(function()
