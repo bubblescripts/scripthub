@@ -315,14 +315,15 @@ Farming2:AddDropdown('PetZones', {
                 end
             end)
             end)
- --[[           spawn(function()
+            spawn(function()
                 Toggles.AutoMobv1:OnChanged(function()
-                    while getgenv().AutoMobv1 == true and wait(0.1)do
-                    if getgenv().MobMethod == "Zone" then
-                        AutoMobv1()
+                    while getgenv().AutoMobv1 == true and wait(0.1) do
+                        if getgenv().MobMethod == "Zone" then
+                            AutoMobv1()
+                        end
                     end
                 end)
-                end)]]
+            end)
     
 
 
