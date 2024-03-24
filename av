@@ -194,7 +194,7 @@ spawn(function()
     end)]]
         Farming2:AddDropdown('EnemiesZone', {
             Values = EnemiesWorld,
-            Default = 'Pet Park', -- number index of the value / string
+            Default = nil, -- number index of the value / string
             Multi = false, -- true / false, allows multiple choices to be selected
         
             Text = 'Select Zone [For Enemies]',
