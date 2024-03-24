@@ -218,10 +218,16 @@ end
         end
         end
 
-function GetPets()
-    while getgenv().AutoCatch == true and tack.wait(3) do 
+function GetPets() 
     for i,v in game:GetService("Workspace").Markers.WorldPets[getgenv().PetsZones]:FindFirstChild("Default"):GetChildren() do
     table.insert(Pets,v.Name)
+    CatchedPet = Interactions:AddLabel('Catched:'..v.Name)
+    spawn(function()
+        while getgenv().loaded and task.wait() do
+            CatchedPet:SetText("Catched:"..v.Name or "nothing",false)
+        end
+    end)
+    while getgenv().AutoCatch == true and task.wait(3) do 
     if v.Name ~= "SourceFolder" then
         print(v.Name)
             game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer("PetInteraction",v.Name)
