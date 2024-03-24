@@ -249,13 +249,13 @@ end]]
     end)
     end)]]
 
-    spawn(function()
+--[[    spawn(function()
         Toggles.AntiAfk:OnChanged(function()
             while getgenv().AntiAfk do
                 AntiAfk()
             end
         end)
-        end)
+        end)]]
 
 
 local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
