@@ -70,6 +70,8 @@
   local Farming = Tabs.Main:AddLeftGroupbox('Farming features : ')
   local Farming2 = Tabs.Main:AddRightGroupbox('Selection features : ')
   local Interactions = Tabs.Main:AddLeftGroupbox('Other Features : ')
+  local Cooldowns = Tabs.Main:AddLeftGroupbox('Cooldowns : ')
+
   Farming2:AddDropdown('FarmingMethod', {
     Values = {'Rendered', 'Zone'},
     Default = 'Rendered', -- number index of the value / string
@@ -125,7 +127,7 @@ Callback = function(Value)
         warn('[IW Supporter] Selected :', Value)
     end
 })
-Farming:AddSlider('AutoFishCD', {
+Cooldowns:AddSlider('AutoFishCD', {
     Text = 'AutoFish Cooldown ',
     Default = 0,
     Min = 0,
@@ -136,6 +138,21 @@ Farming:AddSlider('AutoFishCD', {
 
     Callback = function(Value)
         getgenv().AFCooldown = Value
+        print('[IW Supporter] Selected :', Value)
+    end
+})
+
+Cooldowns:AddSlider('ACCooldown', {
+    Text = 'AutoCatch Cooldown ',
+    Default = 0,
+    Min = 0,
+    Max = 10,
+    Rounding = 1,
+	Suffix = " s.",
+    Compact = false,
+
+    Callback = function(Value)
+        getgenv().ACCooldown = Value
         print('[IW Supporter] Selected :', Value)
     end
 })
@@ -264,7 +281,7 @@ end
 
 spawn(function()
     Toggles.AutoCatch:OnChanged(function()
-		while getgenv().AutoCatch == true do 
+		while getgenv().AutoCatch == true and wait(getgenv().ACCooldown or 5)do 
 			if getgenv().FarmingMethod == "Zone" and getgenv().AutoCatch == true then
                 GetPets()
             elseif getgenv().FarmingMethod == "Rendered" and getgenv().AutoCatch == true then
