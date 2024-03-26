@@ -254,14 +254,17 @@ Farming2:AddDropdown('PetZones', {
         humanoid.MaxHealth = math.huge
     end
     function AutoMobv1()
-        for i,v in game:GetService("Workspace").Markers.Enemies[getgenv().EnemiesWorld]:FindFirstChild("Default"):GetChildren() do
-            if v.Name ~= "SourceFolder" then
-                wait(0.1) 
-                print(v.Name)            
-                    game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer("TargetEnemy",v.Name)
+        if getgenv().AutoMobv1 == true and getgenv().MobMethod == "Zone" then
+            while getgenv().AutoMobv1 and wait(0.1) do
+                for i,v in game:GetService("Workspace").Markers.Enemies[getgenv().EnemiesWorld]:FindFirstChild("Default"):GetChildren() do
+                    if v.Name ~= "SourceFolder" then
+                        print(v.Name)            
+                            game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer("TargetEnemy",v.Name)
         end
     end
     end
+end
+end
     spawn(function()
         Toggles.GodMode:OnChanged(function()
             while getgenv().GodMode and task.wait(0.1) do
