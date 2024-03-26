@@ -167,6 +167,20 @@ Farming2:AddDropdown('PetZones', {
             print('[IW Supporter] Selected :', Value)
         end
     })
+    Cooldowns:AddSlider('MobKillCD', {
+        Text = 'Mob Kill Cooldown ',
+        Default = 1,
+        Min = 0.1,
+        Max = 10,
+        Rounding = 1,
+        Suffix = " s.",
+        Compact = false,
+
+        Callback = function(Value)
+            getgenv().MobKillCD = Value
+            print('[IW Supporter] Selected :', Value)
+        end
+    })
 
 --[[    Cooldowns:AddSlider('AutoBoss', {
         Text = 'AutoBoss CD ',
@@ -255,7 +269,7 @@ Farming2:AddDropdown('PetZones', {
     end
     function AutoMobv1()
         if getgenv().AutoMobv1 == true and getgenv().MobMethod == "Zone" then
-            while getgenv().AutoMobv1 and wait(0.1) do
+            while getgenv().AutoMobv1 and wait(getgenv().MobKillCD or 1) do
                 for i,v in game:GetService("Workspace").Markers.Enemies[getgenv().EnemiesWorld]:FindFirstChild("Default"):GetChildren() do
                     if v.Name ~= "SourceFolder" then
                         print(v.Name)            
