@@ -305,7 +305,7 @@ local Crates = Tabs.AutoHatch:AddRightGroupbox('Crates features : ')
 local HatchingEvent = Tabs.AutoHatch:AddRightGroupbox('Event features : ')
 
 BeachNpcs = {}
-for i,v in pairs(game:GetService("Workspace").Zones["3"].Interactables.ArmWrestling.NPC:GetChildren()) do
+for i,v in pairs(game:GetService("Workspace").GameObjects.ArmWrestling["3"].NPC:GetChildren()) do
 	table.insert(BeachNpcs, v.Name)
 end
 
