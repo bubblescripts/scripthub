@@ -505,15 +505,6 @@ PetWebhook:AddToggle('PetWebhook', { -- Flag Name goes here
 
 
 
-spawn(function()
-	while getgenv().loaded and task.wait() do
-		WebhookTextUrl:SetText("Webhook Url : "..getgenv().Url or "nothing",false)
-		WebhookTextTime:SetText("Webhook Time : "..getgenv().Time or "nothing",false)
-		--PetWebhookTextUrl:SetText("Webhook Url : "..getgenv().PetUrl or "nothing",false)
-		--PetWebhookTextTime:SetText("Webhook Time : "..getgenv().PetTime or "nothing",false)
-end
-end)
-
 
 
 
