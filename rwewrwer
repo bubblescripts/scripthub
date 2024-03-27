@@ -661,9 +661,9 @@ Main3:AddDropdown('Worlds', {
 
 Npc = {}
 
-for i = 1, 5 do
-    local zone = tostring(i,"AquaEvent")
-    local npcFolder = game:GetService("Workspace").Zones[zone].Interactables.ArmWrestling.NPC
+for i = 1, 9 do
+    local zone = tostring(i,"AquaEvent","Easter","HuntWorld","GreekEvent")
+    local npcFolder = game:GetService("Workspace").GameObjects.ArmWrestling[zone].NPC
     
     for _, npc in ipairs(npcFolder:GetChildren()) do
         table.insert(Npc, npc.Name)
