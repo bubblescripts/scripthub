@@ -12,7 +12,7 @@ end
 
 local function getReward()
      for i = 0, 14,1 do
-    game:GetService("ReplicatedStorage").Packages.Knit.Services.TimedRewardService.RE.onClaim:FireServer(ш)
+    game:GetService("ReplicatedStorage").Packages.Knit.Services.TimedRewardService.RE.onClaim:FireServer()
 end
 end
 
