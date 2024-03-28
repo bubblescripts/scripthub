@@ -9,7 +9,7 @@ end
 local function AutoClickGrind()
     game:GetService("ReplicatedStorage").Packages.Knit.Services.ToolService.RE.onClick:FireServer()
 end
-
+ 
 local function getReward()
      for i = 0, 14,1 do
     game:GetService("ReplicatedStorage").Packages.Knit.Services.TimedRewardService.RE.onClaim:FireServer()
