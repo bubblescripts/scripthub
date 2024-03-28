@@ -1,1 +1,12 @@
 
+spawn(function()
+while task.wait() do
+getgenv().ValuesUpdate = {
+    ['Knuckles'] = game:GetService("Players").LocalPlayer.leaderstats.Knuckles.Value,
+    ['Wins'] = game:GetService("Players").LocalPlayer.leaderstats.Wins.Value,
+    ['Hands'] = game:GetService("Players").LocalPlayer.leaderstats.Hands.Value,
+    ['Biceps'] = game:GetService("Players").LocalPlayer.leaderstats.Biceps.Value,
+}
+    task.wait(.25)
+    end
+end)
