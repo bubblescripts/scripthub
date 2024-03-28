@@ -1,16 +1,58 @@
 if game.CoreGui:FindFirstChild("ScreenGui") then
   game.CoreGui["ScreenGui"]:Destroy()
 end
+getgenv().loaded = true
+local function AutoClickNpc()
+    game:GetService("ReplicatedStorage").Packages.Knit.Services.ArmWrestleService.RE.onClickRequest:FireServer()
+end
 
-spawn(function()
-while task.wait() do
-getgenv().ValuesUpdate = {
-    ['Knuckles'] = game:GetService("Players").LocalPlayer.leaderstats.Knuckles.Value,
-    ['Wins'] = game:GetService("Players").LocalPlayer.leaderstats.Wins.Value,
+local function AutoClickGrind()
+    game:GetService("ReplicatedStorage").Packages.Knit.Services.ToolService.RE.onClick:FireServer()
+end
 
-    ['Hands'] = game:GetService("Players").LocalPlayer.leaderstats.Hands.Value,
-    ['Biceps'] = game:GetService("Players").LocalPlayer.leaderstats.Biceps.Value,
-}
-    task.wait(.25)
+local function getReward()
+     for i = 0, 14,1 do
+    game:GetService("ReplicatedStorage").Packages.Knit.Services.TimedRewardService.RE.onClaim:FireServer(ш)
+end
+end
+
+
+b = require(game:GetService("ReplicatedStorage").Data.RebirthRanks)
+ranks = {}
+for i,vals in pairs(b) do 
+	
+end
+
+
+    spawn(function()
+    while task.wait() do
+    getgenv().ValuesUpdate = {
+        ['Knuckles'] = game:GetService("Players").LocalPlayer.leaderstats.Knuckles.Value,
+        ['Wins'] = game:GetService("Players").LocalPlayer.leaderstats.Wins.Value,
+        ['Hands'] = game:GetService("Players").LocalPlayer.leaderstats.Hands.Value,
+        ['Biceps'] = game:GetService("Players").LocalPlayer.leaderstats.Biceps.Value,
+    }
+        task.wait(.25)
+        end
+    end)
+
+    Zones = {}
+    for _,v in game:GetService("Workspace").GameObjects.ArmWrestling:GetChildren() do 
+        if v:IsA("Folder")  then
+            table.insert(Zones,v.Name)
+        end
     end
-end)
+
+
+    local T = {"K","M","B","T","Qa","Qi","Sx","Sp","Oc","Non"}
+    local function comma_value(n)
+        if not tonumber(n) then return n end
+        if n < 10000 then return math.floor(n) end
+        local d = math.floor(math.log10(n)/3)*3
+        local s = tostring(n/(10^d)):sub(1,5)
+        return s.." "..tostring(T[math.floor(d/3)])
+    end
+
+
+    local gamename = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+    local repo = 'https://raw.githubusercontent.com/NecoWareHub/Hub/main/'
